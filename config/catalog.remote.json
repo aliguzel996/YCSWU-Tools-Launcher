@@ -1,0 +1,297 @@
+{
+  "suite": {
+    "name": "YCSWU Tools",
+    "channel": "stable",
+    "manifestVersion": "1.0.0",
+    "supportUrl": "https://ycswu.co/araclar/",
+    "syncedAt": "2026-05-09T20:15:27.807Z",
+    "distribution": {
+      "type": "github-releases",
+      "owner": "YOUR_GITHUB_OWNER",
+      "repo": "YOUR_LAUNCHER_REPO",
+      "manifestBranch": "main",
+      "manifestPath": "catalog.json",
+      "releaseTagPattern": "{appId}-v{version}",
+      "rawManifestUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/main/catalog.json"
+    },
+    "manifestUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/main/catalog.json",
+    "builtAt": "2026-05-09T20:50:00.542Z"
+  },
+  "apps": [
+    {
+      "id": "pixelmaxxxing",
+      "name": "pixelmaxxxing",
+      "headline": "editable mosaic remap, tone matching, batch recolor and clean SVG export workflow for still images.",
+      "description": "Tek bir gorseli mozaik parcaciklara ayirir, tonlari esler, yeniden renklendirir ve temiz SVG cikti alir.",
+      "version": "1.0.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "PX",
+        "background": "#090909",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/pixelmaxxxing-logo.png"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/pixelmaxxxing/",
+        "repoUrl": ""
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/pixelmaxxxing-v1.0.0/pixelmaxxxing-portable-1.0.0-x64.exe",
+        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/pixelmaxxxing-v1.0.0/pixelmaxxxing-portable-1.0.0-x64.exe",
+        "launchExecutable": "pixelmaxxxing.exe",
+        "installDirName": "pixelmaxxxing",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing",
+        "packageJsonPath": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing\\package.json",
+        "buildCommands": {
+          "portable": "npm.cmd run dist:win",
+          "installer": "npm.cmd run dist:win"
+        },
+        "releaseTagPrefix": "pixelmaxxxing-v",
+        "assetPatterns": {
+          "portable": "pixelmaxxxing-portable-{version}-x64.exe",
+          "installer": "pixelmaxxxing-setup-{version}-x64.exe"
+        },
+        "localArtifacts": {
+          "portable": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing\\dist\\pixelmaxxxing-portable-1.0.0-x64.exe",
+          "installer": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing\\dist\\pixelmaxxxing-setup-1.0.0-x64.exe",
+          "latestYml": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing\\dist\\latest.yml"
+        },
+        "releaseTag": "pixelmaxxxing-v1.0.0",
+        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/pixelmaxxxing-v1.0.0"
+      }
+    },
+    {
+      "id": "ngon-junk",
+      "name": "ngon-junk",
+      "headline": "fast 3D look-dev workspace for scene preview, material testing, UV tweaks, camera checks and export passes.",
+      "description": "Modeli hizli onizler, materyal ve UV denemesi yapar, kamera bakar ve export oncekini tek yerde toplar.",
+      "version": "1.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "NJ",
+        "background": "#f28a14",
+        "foreground": "#120400",
+        "imagePath": "./assets/ngon-junk-logo.png"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/ngon-junk/",
+        "repoUrl": ""
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/ngon-junk-v1.1.0/ngon-junk-1.1.0.exe",
+        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/ngon-junk-v1.1.0/ngon-junk-1.1.0.exe",
+        "launchExecutable": "ngon-junk.exe",
+        "installDirName": "ngon-junk",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\ngon-junk",
+        "packageJsonPath": "C:\\Users\\guzel\\Documents\\Codex\\ngon-junk\\package.json",
+        "buildCommands": {
+          "portable": "npm.cmd run dist:win"
+        },
+        "releaseTagPrefix": "ngon-junk-v",
+        "assetPatterns": {
+          "portable": "ngon-junk-{version}.exe",
+          "installer": ""
+        },
+        "localArtifacts": {
+          "portable": "C:\\Users\\guzel\\Documents\\Codex\\ngon-junk\\release\\windows app\\ngon-junk-1.1.0.exe",
+          "installer": "",
+          "latestYml": ""
+        },
+        "releaseTag": "ngon-junk-v1.1.0",
+        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/ngon-junk-v1.1.0"
+      }
+    },
+    {
+      "id": "gift-converter",
+      "name": "gift converter",
+      "headline": "batch video-to-GIF conversion with per-file controls, render tuning, preview checks and ZIP-ready export bundles.",
+      "description": "Videolari GIF'e cevirir, dosya bazli ayar verir, onizleme sunar ve toplu ciktiyi bir arada toplar.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "GC",
+        "background": "#ffffff",
+        "foreground": "#111111",
+        "imagePath": "./assets/gift-converter-logo.png"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/gift-converter/",
+        "repoUrl": ""
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/gift-converter-v0.1.0/gift-converter-0.1.0.exe",
+        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/gift-converter-v0.1.0/gift-converter-0.1.0.exe",
+        "launchExecutable": "gift-converter.exe",
+        "installDirName": "gift-converter",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video",
+        "packageJsonPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video\\package.json",
+        "buildCommands": {
+          "portable": "npm.cmd run dist:win",
+          "installer": "npm.cmd run dist:setup"
+        },
+        "releaseTagPrefix": "gift-converter-v",
+        "assetPatterns": {
+          "portable": "gift-converter-{version}.exe",
+          "installer": ""
+        },
+        "localArtifacts": {
+          "portable": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video\\release\\gift-converter-0.1.0.exe",
+          "installer": "",
+          "latestYml": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video\\release\\latest.yml"
+        },
+        "releaseTag": "gift-converter-v0.1.0",
+        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/gift-converter-v0.1.0"
+      }
+    },
+    {
+      "id": "giffer",
+      "name": "giffer",
+      "headline": "single clip or image sequence to GIF or MOV with live preview, crop control, frame tuning and fast export.",
+      "description": "Video ya da image sequence acar, canli onizleme verir, kirpar ve GIF ya da MOV exportunu hizli alir.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "GF",
+        "background": "#000000",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/giffer-logo.png"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/giffer/",
+        "repoUrl": ""
+      },
+      "install": {
+        "strategy": "nsis",
+        "installerUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/giffer-v0.1.0/Giffer%20Setup.exe",
+        "silentArgs": [],
+        "launchExecutable": "Giffer.exe",
+        "installDirName": "Giffer",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-25\\files-mentioned-by-the-user-ekran",
+        "packageJsonPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-25\\files-mentioned-by-the-user-ekran\\package.json",
+        "buildCommands": {
+          "portable": "npm.cmd run desktop:build",
+          "installer": "npm.cmd run desktop:build"
+        },
+        "releaseTagPrefix": "giffer-v",
+        "assetPatterns": {
+          "portable": "Giffer.exe",
+          "installer": "Giffer Setup.exe"
+        },
+        "localArtifacts": {
+          "portable": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-25\\files-mentioned-by-the-user-ekran\\release\\windows\\Giffer.exe",
+          "installer": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-25\\files-mentioned-by-the-user-ekran\\release\\itch\\Giffer Setup.exe",
+          "latestYml": ""
+        },
+        "releaseTag": "giffer-v0.1.0",
+        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/giffer-v0.1.0"
+      }
+    },
+    {
+      "id": "hot-vs-nice",
+      "name": "hot vs nice",
+      "headline": "desktop SVG color exploration utility for trying warmer, calmer or alternate palette directions before final output.",
+      "description": "SVG cizimlerinde sicak, sakin ya da farkli renk yonlerini hizla dener ve sonucu temizce karsilastirir.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "HV",
+        "background": "#111111",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/hot-vs-nice-logo.png"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/hot-vs-nice/",
+        "repoUrl": ""
+      },
+      "install": {
+        "strategy": "nsis",
+        "installerUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/hot-vs-nice-v0.1.0/hot-vs-nice-setup-0.1.0.exe",
+        "silentArgs": [],
+        "launchExecutable": "hot-vs-nice.exe",
+        "installDirName": "hot-vs-nice",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-24\\vekt-re-renk-se-enekleri-uygulamas",
+        "packageJsonPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-24\\vekt-re-renk-se-enekleri-uygulamas\\package.json",
+        "buildCommands": {
+          "portable": "npm.cmd run dist:github",
+          "installer": "npm.cmd run dist:setup"
+        },
+        "releaseTagPrefix": "hot-vs-nice-v",
+        "assetPatterns": {
+          "portable": "hot-vs-nice.exe",
+          "installer": "hot-vs-nice-setup-{version}.exe"
+        },
+        "localArtifacts": {
+          "portable": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-24\\vekt-re-renk-se-enekleri-uygulamas\\release\\github\\hot-vs-nice-win32-x64\\hot-vs-nice.exe",
+          "installer": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-24\\vekt-re-renk-se-enekleri-uygulamas\\release\\itch\\hot-vs-nice-setup-0.1.0.exe",
+          "latestYml": ""
+        },
+        "releaseTag": "hot-vs-nice-v0.1.0",
+        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/hot-vs-nice-v0.1.0"
+      }
+    },
+    {
+      "id": "2d-to-3d",
+      "name": "2d-to-3d",
+      "headline": "vector text and shape depth builder for quick 2D-to-3D preview, depth tuning, output and iteration passes.",
+      "description": "Yazi ve sekilleri hizla hacimlendirir, derinlik bakar, onizleme alir ve 2D'den 3D'ye gecisi toplar.",
+      "version": "0.1.0",
+      "channel": "beta",
+      "art": {
+        "monogram": "2D",
+        "background": "#bdbdbd",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/2d-to-3d-logo.png"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/2d-to-3d/",
+        "repoUrl": ""
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/2d-to-3d-v0.1.0/2d-to-3d-portable-0.1.0.exe",
+        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/2d-to-3d-v0.1.0/2d-to-3d-portable-0.1.0.exe",
+        "launchExecutable": "2D to 3D.exe",
+        "installDirName": "2d-to-3d",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D",
+        "packageJsonPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D\\package.json",
+        "buildCommands": {
+          "portable": "npm.cmd run build:windows",
+          "installer": "npm.cmd run build:itch"
+        },
+        "releaseTagPrefix": "2d-to-3d-v",
+        "assetPatterns": {
+          "portable": "2d-to-3d-portable-{version}.exe",
+          "installer": "2d-to-3d-setup-{version}.exe"
+        },
+        "localArtifacts": {
+          "portable": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D\\windows app\\2d-to-3d-portable-0.1.0.exe",
+          "installer": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D\\itch build\\2d-to-3d-setup-0.1.0.exe",
+          "latestYml": ""
+        },
+        "releaseTag": "2d-to-3d-v0.1.0",
+        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/2d-to-3d-v0.1.0"
+      }
+    }
+  ]
+}

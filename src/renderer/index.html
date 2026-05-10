@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YCSWU Tools</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <section class="catalog-column">
+        <header class="suite-strip">
+          <div class="suite-brand">
+            <h1 class="suite-mark">YCSWU TOOLS</h1>
+            <h1 class="suite-title">apps + updates</h1>
+          </div>
+          <div class="suite-actions">
+            <button id="refresh-button" class="small-button" type="button">refresh</button>
+          </div>
+        </header>
+
+        <div id="app-grid" class="app-grid"></div>
+      </section>
+
+      <aside class="detail-column">
+        <section class="hero-panel">
+          <div class="hero-brandmark" aria-hidden="true">
+            <button class="hero-logo-link" id="hero-site-link" type="button" aria-label="Open ycswu.co">
+              <img class="hero-logo" src="./assets/favicon.svg" alt="" />
+            </button>
+            <button class="hero-wordmark-link" id="hero-wordmark-link" type="button" aria-label="Open ycswu.co">
+              <img class="hero-wordmark" src="./assets/Group.svg" alt="" />
+            </button>
+          </div>
+        </section>
+
+        <section id="detail-panel" class="detail-panel"></section>
+
+        <section class="activity-panel">
+          <div class="panel-title">activity log</div>
+          <div id="activity-log" class="activity-log"></div>
+        </section>
+      </aside>
+    </div>
+
+    <template id="app-card-template">
+      <article class="tool-card">
+        <div class="card-head">
+          <div class="art-badge"></div>
+          <div class="head-copy">
+            <div class="card-title-row">
+              <h2 class="card-title"></h2>
+              <div class="card-flags">
+                <span class="version-pill"></span>
+                <span class="status-pill"></span>
+              </div>
+            </div>
+            <p class="card-headline"></p>
+          </div>
+        </div>
+        <p class="card-description"></p>
+        <div class="card-actions"></div>
+      </article>
+    </template>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

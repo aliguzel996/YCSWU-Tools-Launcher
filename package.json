@@ -1,0 +1,55 @@
+{
+  "name": "ycswu-tools",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Central launcher and update hub for YCSWU desktop tools.",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "validate:catalog": "node scripts/validate-catalog.mjs",
+    "print:catalog": "node scripts/validate-catalog.mjs --print",
+    "sync:catalog": "node scripts/sync-local-catalog.mjs",
+    "build:remote-manifest": "node scripts/build-remote-manifest.mjs",
+    "stage:release": "node scripts/stage-release-bundle.mjs",
+    "build:apps": "node scripts/run-app-build.mjs",
+    "publish:github": "node scripts/publish-github-release.mjs"
+  },
+  "build": {
+    "appId": "co.ycswu.launcher",
+    "productName": "YCSWU Tools",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "build/**/*",
+      "electron/**/*",
+      "src/**/*",
+      "config/**/*",
+      "scripts/validate-catalog.mjs",
+      "package.json"
+    ],
+    "asar": true,
+    "win": {
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false,
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false
+    }
+  },
+  "devDependencies": {
+    "electron": "41.3.0",
+    "electron-builder": "^26.8.1"
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "distribution": {
+    "type": "github-releases",
+    "owner": "YOUR_GITHUB_OWNER",
+    "repo": "YOUR_LAUNCHER_REPO",
+    "manifestBranch": "main",
+    "manifestPath": "catalog.json",
+    "releaseTagPattern": "{appId}-v{version}"
+  },
+  "apps": [
+    {
+      "id": "pixelmaxxxing",
+      "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing",
+      "packageJsonPath": "package.json",
+      "links": {
+        "siteUrl": "https://ycswu.co/araclar/",
+        "repoUrl": ""
+      },
+      "buildCommands": {
+        "portable": "npm.cmd run dist:win",
+        "installer": "npm.cmd run dist:win"
+      },
+      "artifacts": {
+        "portable": "dist/pixelmaxxxing-portable-{version}-x64.exe",
+        "installer": "dist/pixelmaxxxing-setup-{version}-x64.exe",
+        "latestYml": "dist/latest.yml",
+        "launchExecutable": "pixelmaxxxing.exe"
+      },
+      "preferredStrategy": "portable"
+    },
+    {
+      "id": "ngon-junk",
+      "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\ngon-junk",
+      "packageJsonPath": "package.json",
+      "links": {
+        "siteUrl": "https://ycswu.co/araclar/",
+        "repoUrl": ""
+      },
+      "buildCommands": {
+        "portable": "npm.cmd run dist:win"
+      },
+      "artifacts": {
+        "portable": "release/windows app/ngon-junk-{version}.exe",
+        "launchExecutable": "ngon-junk.exe"
+      },
+      "preferredStrategy": "portable"
+    },
+    {
+      "id": "gift-converter",
+      "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video",
+      "packageJsonPath": "package.json",
+      "links": {
+        "siteUrl": "https://ycswu.co/araclar/",
+        "repoUrl": ""
+      },
+      "buildCommands": {
+        "portable": "npm.cmd run dist:win",
+        "installer": "npm.cmd run dist:setup"
+      },
+      "artifacts": {
+        "portable": "release/gift-converter-{version}.exe",
+        "latestYml": "release/latest.yml",
+        "launchExecutable": "gift-converter.exe"
+      },
+      "preferredStrategy": "portable"
+    },
+    {
+      "id": "giffer",
+      "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-25\\files-mentioned-by-the-user-ekran",
+      "packageJsonPath": "package.json",
+      "links": {
+        "siteUrl": "https://ycswu.co/araclar/",
+        "repoUrl": ""
+      },
+      "buildCommands": {
+        "portable": "npm.cmd run desktop:build",
+        "installer": "npm.cmd run desktop:build"
+      },
+      "artifacts": {
+        "portable": "release/windows/Giffer.exe",
+        "installer": "release/itch/Giffer Setup.exe",
+        "launchExecutable": "Giffer.exe"
+      },
+      "preferredStrategy": "nsis"
+    },
+    {
+      "id": "hot-vs-nice",
+      "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-24\\vekt-re-renk-se-enekleri-uygulamas",
+      "packageJsonPath": "package.json",
+      "links": {
+        "siteUrl": "https://ycswu.co/araclar/",
+        "repoUrl": ""
+      },
+      "buildCommands": {
+        "portable": "npm.cmd run dist:github",
+        "installer": "npm.cmd run dist:setup"
+      },
+      "artifacts": {
+        "portable": "release/github/hot-vs-nice-win32-x64/hot-vs-nice.exe",
+        "installer": "release/itch/hot-vs-nice-setup-{version}.exe",
+        "launchExecutable": "hot-vs-nice.exe"
+      },
+      "preferredStrategy": "nsis"
+    },
+    {
+      "id": "2d-to-3d",
+      "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D",
+      "packageJsonPath": "package.json",
+      "links": {
+        "siteUrl": "https://ycswu.co/araclar/",
+        "repoUrl": ""
+      },
+      "buildCommands": {
+        "portable": "npm.cmd run build:windows",
+        "installer": "npm.cmd run build:itch"
+      },
+      "artifacts": {
+        "portable": "windows app/2d-to-3d-portable-{version}.exe",
+        "installer": "itch build/2d-to-3d-setup-{version}.exe",
+        "launchExecutable": "2D to 3D.exe"
+      },
+      "preferredStrategy": "portable"
+    }
+  ]
+}
