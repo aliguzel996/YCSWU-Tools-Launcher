@@ -4,18 +4,18 @@
     "channel": "stable",
     "manifestVersion": "1.0.0",
     "supportUrl": "https://ycswu.co/araclar/",
-    "syncedAt": "2026-05-09T20:15:27.807Z",
+    "syncedAt": "2026-05-09T20:50:00.553Z",
     "distribution": {
       "type": "github-releases",
-      "owner": "YOUR_GITHUB_OWNER",
-      "repo": "YOUR_LAUNCHER_REPO",
+      "owner": "aliguzel996",
+      "repo": "YCSWU-Tools-Launcher",
       "manifestBranch": "main",
       "manifestPath": "catalog.json",
       "releaseTagPattern": "{appId}-v{version}",
-      "rawManifestUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/main/catalog.json"
+      "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
-    "manifestUrl": "https://raw.githubusercontent.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/main/catalog.json",
-    "builtAt": "2026-05-09T20:50:00.542Z"
+    "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
+    "builtAt": "2026-05-11T17:52:28.204Z"
   },
   "apps": [
     {
@@ -37,8 +37,8 @@
       },
       "install": {
         "strategy": "portable",
-        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/pixelmaxxxing-v1.0.0/pixelmaxxxing-portable-1.0.0-x64.exe",
-        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/pixelmaxxxing-v1.0.0/pixelmaxxxing-portable-1.0.0-x64.exe",
+        "packageUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/pixelmaxxxing-v1.0.0/pixelmaxxxing-portable-1.0.0-x64.exe",
+        "portableUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/pixelmaxxxing-v1.0.0/pixelmaxxxing-portable-1.0.0-x64.exe",
         "launchExecutable": "pixelmaxxxing.exe",
         "installDirName": "pixelmaxxxing",
         "discoveryPaths": []
@@ -61,7 +61,7 @@
           "latestYml": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing\\dist\\latest.yml"
         },
         "releaseTag": "pixelmaxxxing-v1.0.0",
-        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/pixelmaxxxing-v1.0.0"
+        "remoteBaseUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/tag/pixelmaxxxing-v1.0.0"
       }
     },
     {
@@ -83,8 +83,8 @@
       },
       "install": {
         "strategy": "portable",
-        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/ngon-junk-v1.1.0/ngon-junk-1.1.0.exe",
-        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/ngon-junk-v1.1.0/ngon-junk-1.1.0.exe",
+        "packageUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/ngon-junk-v1.1.0/ngon-junk-1.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/ngon-junk-v1.1.0/ngon-junk-1.1.0.exe",
         "launchExecutable": "ngon-junk.exe",
         "installDirName": "ngon-junk",
         "discoveryPaths": []
@@ -106,7 +106,7 @@
           "latestYml": ""
         },
         "releaseTag": "ngon-junk-v1.1.0",
-        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/ngon-junk-v1.1.0"
+        "remoteBaseUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/tag/ngon-junk-v1.1.0"
       }
     },
     {
@@ -128,8 +128,8 @@
       },
       "install": {
         "strategy": "portable",
-        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/gift-converter-v0.1.0/gift-converter-0.1.0.exe",
-        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/gift-converter-v0.1.0/gift-converter-0.1.0.exe",
+        "packageUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/gift-converter-v0.1.0/gift-converter-0.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/gift-converter-v0.1.0/gift-converter-0.1.0.exe",
         "launchExecutable": "gift-converter.exe",
         "installDirName": "gift-converter",
         "discoveryPaths": []
@@ -152,7 +152,7 @@
           "latestYml": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video\\release\\latest.yml"
         },
         "releaseTag": "gift-converter-v0.1.0",
-        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/gift-converter-v0.1.0"
+        "remoteBaseUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/tag/gift-converter-v0.1.0"
       }
     },
     {
@@ -174,7 +174,7 @@
       },
       "install": {
         "strategy": "nsis",
-        "installerUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/giffer-v0.1.0/Giffer%20Setup.exe",
+        "installerUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/giffer-v0.1.0/Giffer%20Setup.exe",
         "silentArgs": [],
         "launchExecutable": "Giffer.exe",
         "installDirName": "Giffer",
@@ -198,7 +198,7 @@
           "latestYml": ""
         },
         "releaseTag": "giffer-v0.1.0",
-        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/giffer-v0.1.0"
+        "remoteBaseUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/tag/giffer-v0.1.0"
       }
     },
     {
@@ -220,7 +220,7 @@
       },
       "install": {
         "strategy": "nsis",
-        "installerUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/hot-vs-nice-v0.1.0/hot-vs-nice-setup-0.1.0.exe",
+        "installerUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/hot-vs-nice-v0.1.0/hot-vs-nice-setup-0.1.0.exe",
         "silentArgs": [],
         "launchExecutable": "hot-vs-nice.exe",
         "installDirName": "hot-vs-nice",
@@ -244,7 +244,7 @@
           "latestYml": ""
         },
         "releaseTag": "hot-vs-nice-v0.1.0",
-        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/hot-vs-nice-v0.1.0"
+        "remoteBaseUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/tag/hot-vs-nice-v0.1.0"
       }
     },
     {
@@ -266,8 +266,8 @@
       },
       "install": {
         "strategy": "portable",
-        "packageUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/2d-to-3d-v0.1.0/2d-to-3d-portable-0.1.0.exe",
-        "portableUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/download/2d-to-3d-v0.1.0/2d-to-3d-portable-0.1.0.exe",
+        "packageUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/2d-to-3d-v0.1.0/2d-to-3d-portable-0.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/download/2d-to-3d-v0.1.0/2d-to-3d-portable-0.1.0.exe",
         "launchExecutable": "2D to 3D.exe",
         "installDirName": "2d-to-3d",
         "discoveryPaths": []
@@ -290,7 +290,7 @@
           "latestYml": ""
         },
         "releaseTag": "2d-to-3d-v0.1.0",
-        "remoteBaseUrl": "https://github.com/YOUR_GITHUB_OWNER/YOUR_LAUNCHER_REPO/releases/tag/2d-to-3d-v0.1.0"
+        "remoteBaseUrl": "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/tag/2d-to-3d-v0.1.0"
       }
     }
   ]
