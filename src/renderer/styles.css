@@ -607,59 +607,62 @@ button {
   padding: 6px 10px;
 }
 
-.router-list {
+.inverter-list {
   display: grid;
   gap: 8px;
   width: 100%;
 }
 
-.router-item {
+.inverter-item {
   display: grid;
   gap: 10px;
   border: 1px solid var(--line);
   padding: 8px;
 }
 
-.router-item-head {
+.inverter-item-head {
   display: flex;
+  justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
 }
 
-.router-file {
+.inverter-file {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.router-file-meta {
+.inverter-file-meta {
   color: var(--muted);
   font-size: 12px;
   text-transform: lowercase;
 }
 
-.router-candidates {
+.inverter-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.inverter-preview-block {
   display: grid;
   gap: 6px;
 }
 
-.router-candidate {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 4px 10px;
-  align-items: center;
-  border-top: 1px solid var(--line);
-  padding-top: 6px;
-}
-
-.router-candidate-name {
-  min-width: 0;
-}
-
-.router-candidate-meta {
+.inverter-preview-label {
   color: var(--muted);
   font-size: 12px;
+  text-transform: lowercase;
+}
+
+.inverter-preview-image {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 .release-table {

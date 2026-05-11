@@ -69,15 +69,6 @@ function renderCard(appEntry) {
   meta.textContent = `release tag: ${appEntry.source?.releaseTag || "pending"} / source: github releases`;
 
   const buttons = [];
-  const downloadUrl = appEntry.install?.packageUrl || appEntry.install?.portableUrl || appEntry.install?.installerUrl || "";
-
-  if (downloadUrl) {
-    buttons.push(
-      `<a class="site-button primary" href="${escapeHtml(downloadUrl)}" target="_blank" rel="noreferrer">${
-        appEntry.install?.strategy === "nsis" ? "download setup" : "download latest"
-      }</a>`
-    );
-  }
 
   if (appEntry.links?.repoUrl) {
     buttons.push(

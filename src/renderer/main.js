@@ -1,10 +1,8 @@
-const IMAGE_ROUTER_TOOL_IDS = new Set(["pixelmaxxxing", "hot-vs-nice", "giffer"]);
-
 const state = {
   catalog: null,
   selectedAppId: null,
-  activeToolTab: "image-router",
-  routerItems: [],
+  activeToolTab: "image-inverter",
+  inverterItems: [],
   activity: [
     {
       type: "info",
@@ -203,73 +201,49 @@ function highlightSelection() {
 function renderToolTabs() {
   return `
     <div class="tool-tabs" role="tablist" aria-label="Launcher tools">
-      <button class="tool-tab ${state.activeToolTab === "image-router" ? "is-active" : ""}" data-tool-tab="image-router" type="button">image router</button>
+      <button class="tool-tab ${state.activeToolTab === "image-inverter" ? "is-active" : ""}" data-tool-tab="image-inverter" type="button">image inverter</button>
       <button class="tool-tab ${state.activeToolTab === "release-map" ? "is-active" : ""}" data-tool-tab="release-map" type="button">release map</button>
       <button class="tool-tab ${state.activeToolTab === "quick-actions" ? "is-active" : ""}" data-tool-tab="quick-actions" type="button">quick actions</button>
     </div>
   `;
 }
 
-function getRouterCandidates() {
-  if (!state.catalog) {
-    return [];
-  }
-
-  return state.catalog.apps.filter((appEntry) => IMAGE_ROUTER_TOOL_IDS.has(appEntry.id));
-}
-
-function renderRouterCandidates(fileEntry) {
-  const candidates = getRouterCandidates();
-
-  if (candidates.length === 0) {
-    return `<div class="tool-empty">No image-aware tools are registered yet.</div>`;
-  }
-
-  return `
-    <div class="router-candidates">
-      ${candidates
-        .map(
-          (appEntry) => `
-            <div class="router-candidate">
-              <div class="router-candidate-name">${escapeHtml(appEntry.name)}</div>
-              <div class="router-candidate-meta">${escapeHtml(appEntry.state.label)}</div>
-              <button class="small-button ghost" type="button" disabled>
-                open with ${escapeHtml(appEntry.name)}
-              </button>
-            </div>
-          `
-        )
-        .join("")}
-    </div>
-  `;
-}
-
-function renderImageRouter() {
-  const hasItems = state.routerItems.length > 0;
+function renderImageInverter() {
+  const hasItems = state.inverterItems.length > 0;
 
   return `
     <div class="tool-stack">
       ${renderToolTabs()}
       <div class="tool-panel">
-        <label class="drop-zone ${hasItems ? "" : "is-empty"}" for="router-input">
+        <label class="drop-zone ${hasItems ? "" : "is-empty"}" for="inverter-input">
           <span class="drop-zone-title">drop image or click to load</span>
         </label>
-        <input id="router-input" class="hidden-input" type="file" accept="image/*" multiple />
+        <input id="inverter-input" class="hidden-input" type="file" accept="image/*" multiple />
         ${
           hasItems
             ? `
-              <div class="router-list">
-                ${state.routerItems
+              <div class="inverter-list">
+                ${state.inverterItems
                   .map(
                     (fileEntry) => `
-                      <article class="router-item">
-                        <div class="router-item-head">
+                      <article class="inverter-item">
+                        <div class="inverter-item-head">
                           <div>
-                            <div class="router-file">${escapeHtml(fileEntry.name)}</div>
-                            <div class="router-file-meta">${escapeHtml(fileEntry.mime || "unknown type")}</div>
+                            <div class="inverter-file">${escapeHtml(fileEntry.name)}</div>
+                            <div class="inverter-file-meta">${escapeHtml(fileEntry.mime || "unknown type")}</div>
+                          </div>
+                          <button class="small-button ghost" data-download-inverted="${escapeHtml(fileEntry.id)}" type="button">download inverted</button>
+                        </div>
+                        <div class="inverter-preview-grid">
+                          <div class="inverter-preview-block">
+                            <div class="inverter-preview-label">original</div>
+                            <img class="inverter-preview-image" src="${escapeHtml(fileEntry.sourceUrl)}" alt="${escapeHtml(fileEntry.name)} original preview" />
+                          </div>
+                          <div class="inverter-preview-block">
+                            <div class="inverter-preview-label">inverted</div>
+                            <img class="inverter-preview-image" src="${escapeHtml(fileEntry.invertedUrl)}" alt="${escapeHtml(fileEntry.name)} inverted preview" />
                           </div>
                         </div>
-                        ${renderRouterCandidates(fileEntry)}
                       </article>
                     `
                   )
@@ -278,7 +252,7 @@ function renderImageRouter() {
             `
             : `
               <div class="tool-empty">
-                Load a still image here, then the launcher will show which YCSWU tools can take the next step.
+                PNG, JPG or WEBP still images can be inverted here without leaving the launcher.
               </div>
             `
         }
@@ -355,7 +329,7 @@ function renderToolHub() {
     return renderQuickActions();
   }
 
-  return renderImageRouter();
+  return renderImageInverter();
 }
 
 function renderDetailActions(appEntry) {
@@ -433,11 +407,11 @@ function bindToolHubEvents() {
     });
   }
 
-  const routerInput = elements.detailPanel.querySelector("#router-input");
+  const inverterInput = elements.detailPanel.querySelector("#inverter-input");
 
-  if (routerInput) {
-    routerInput.addEventListener("change", async (event) => {
-      await addRouterFiles(event.target.files);
+  if (inverterInput) {
+    inverterInput.addEventListener("change", async (event) => {
+      await addInverterFiles(event.target.files);
       event.target.value = "";
     });
   }
@@ -457,7 +431,13 @@ function bindToolHubEvents() {
     dropZone.addEventListener("drop", async (event) => {
       event.preventDefault();
       dropZone.classList.remove("is-dragging");
-      await addRouterFiles(event.dataTransfer.files);
+      await addInverterFiles(event.dataTransfer.files);
+    });
+  }
+
+  for (const downloadButton of elements.detailPanel.querySelectorAll("[data-download-inverted]")) {
+    downloadButton.addEventListener("click", () => {
+      downloadInvertedImage(downloadButton.dataset.downloadInverted);
     });
   }
 
@@ -628,7 +608,65 @@ async function openExternalLink(url, message) {
   pushActivity(message, "success");
 }
 
-async function addRouterFiles(fileList) {
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || ""));
+    reader.onerror = () => reject(reader.error || new Error("Image could not be read."));
+    reader.readAsDataURL(file);
+  });
+}
+
+function loadImage(url) {
+  return new Promise((resolve, reject) => {
+    const image = new Image();
+    image.onload = () => resolve(image);
+    image.onerror = () => reject(new Error("Preview image could not be decoded."));
+    image.src = url;
+  });
+}
+
+async function createInvertedDataUrl(sourceUrl) {
+  const image = await loadImage(sourceUrl);
+  const canvas = document.createElement("canvas");
+  canvas.width = image.naturalWidth || image.width;
+  canvas.height = image.naturalHeight || image.height;
+  const context = canvas.getContext("2d", { willReadFrequently: true });
+
+  if (!context) {
+    throw new Error("Canvas context could not be created.");
+  }
+
+  context.drawImage(image, 0, 0);
+  const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+  const { data } = imageData;
+
+  for (let index = 0; index < data.length; index += 4) {
+    data[index] = 255 - data[index];
+    data[index + 1] = 255 - data[index + 1];
+    data[index + 2] = 255 - data[index + 2];
+  }
+
+  context.putImageData(imageData, 0, 0);
+  return canvas.toDataURL("image/png");
+}
+
+function downloadInvertedImage(itemId) {
+  const item = state.inverterItems.find((entry) => entry.id === itemId);
+
+  if (!item) {
+    return;
+  }
+
+  const link = document.createElement("a");
+  const safeBase = item.name.replace(/\.[^.]+$/, "");
+  link.href = item.invertedUrl;
+  link.download = `${safeBase}-inverted.png`;
+  link.click();
+  pushActivity(`Inverted image downloaded for ${item.name}.`, "success");
+}
+
+async function addInverterFiles(fileList) {
   const files = Array.from(fileList || []).filter((file) => file.type.startsWith("image/"));
 
   if (files.length === 0) {
@@ -636,16 +674,24 @@ async function addRouterFiles(fileList) {
     return;
   }
 
-  const nextItems = files.map((file) => ({
-    id: `${file.name}-${file.size}-${file.lastModified}`,
-    name: file.name,
-    mime: file.type || "unknown"
-  }));
+  const nextItems = [];
 
-  state.routerItems = [...nextItems, ...state.routerItems].slice(0, 12);
-  state.activeToolTab = "image-router";
+  for (const file of files) {
+    const sourceUrl = await readFileAsDataUrl(file);
+    const invertedUrl = await createInvertedDataUrl(sourceUrl);
+    nextItems.push({
+      id: `${file.name}-${file.size}-${file.lastModified}`,
+      name: file.name,
+      mime: file.type || "unknown",
+      sourceUrl,
+      invertedUrl
+    });
+  }
+
+  state.inverterItems = [...nextItems, ...state.inverterItems].slice(0, 12);
+  state.activeToolTab = "image-inverter";
   renderDetail();
-  pushActivity(`${files.length} image loaded into router.`, "success");
+  pushActivity(`${files.length} image loaded into inverter.`, "success");
 }
 
 async function bootstrap() {
@@ -681,6 +727,3 @@ async function bootstrap() {
 }
 
 bootstrap();
-
-// TODO: File handoff from image router into tool executables should be wired
-// through launcher IPC once the target apps expose a stable "open with file" entrypoint.
