@@ -81,6 +81,25 @@ That means the website and launcher can pick up the new version from the same ca
 
 The release workflow now also verifies that the published release contains the expected asset file for the target app before the catalog is updated. If the release tag is correct but the asset name is wrong or missing, the workflow fails instead of silently publishing a broken catalog.
 
+## Automatic Repo Discovery
+
+This repository now also includes `.github/workflows/discover-tool-repos.yml`.
+
+It checks the `aliguzel996` account on a schedule and looks for repositories that contain one of these files:
+
+- `app.manifest.json`
+- `metadata/manifest/tool.manifest.json`
+
+If a repo exposes one of those machine-readable manifests, it can be auto-added to `config/discovered-tools.json`, then merged into the shared root `catalog.json`.
+
+That means:
+
+- the website can see the new tool from the same remote catalog
+- installed launchers can see the new tool from the same remote catalog
+- no manual launcher card editing is needed for every new repo
+
+The discovery flow does not blindly index every repo. It only picks repos that already describe themselves in a structured tool manifest.
+
 ## English
 
 YCSWU Tools Launcher is a desktop hub for a small group of weird, practical, visual tools. It is not a generic app store and it is not trying to look polished in a corporate way. It is a compact control panel for installing, opening, updating, and tracking YCSWU tools from one place.

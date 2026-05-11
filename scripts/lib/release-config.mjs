@@ -9,14 +9,17 @@ export function loadReleaseContext(workspaceRoot) {
   const releaseSourcesPath = path.join(workspaceRoot, "config", "release-sources.json");
   const localCatalogPath = path.join(workspaceRoot, "config", "catalog.local.json");
   const remoteCatalogPath = path.join(workspaceRoot, "config", "catalog.remote.json");
+  const discoveredToolsPath = path.join(workspaceRoot, "config", "discovered-tools.json");
 
   return {
     releaseSourcesPath,
     localCatalogPath,
     remoteCatalogPath,
+    discoveredToolsPath,
     releaseSources: loadJson(releaseSourcesPath),
     localCatalog: loadJson(localCatalogPath),
-    remoteCatalog: fs.existsSync(remoteCatalogPath) ? loadJson(remoteCatalogPath) : null
+    remoteCatalog: fs.existsSync(remoteCatalogPath) ? loadJson(remoteCatalogPath) : null,
+    discoveredTools: fs.existsSync(discoveredToolsPath) ? loadJson(discoveredToolsPath) : { owner: null, syncedAt: null, apps: [] }
   };
 }
 

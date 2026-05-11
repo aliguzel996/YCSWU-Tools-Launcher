@@ -4,17 +4,31 @@ import {
   buildGithubReleaseAssetUrl,
   buildReleaseTag,
   buildReleaseTagPrefix,
+  loadReleaseContext,
   resolveGithubDistribution
 } from "./lib/release-config.mjs";
 
 const workspaceRoot = process.cwd();
 const sourceConfigPath = path.join(workspaceRoot, "config", "release-sources.json");
-const localCatalogPath = path.join(workspaceRoot, "config", "catalog.local.json");
 const remoteCatalogPath = path.join(workspaceRoot, "config", "catalog.remote.json");
 
 const sourceConfig = JSON.parse(fs.readFileSync(sourceConfigPath, "utf8"));
-const localCatalog = JSON.parse(fs.readFileSync(localCatalogPath, "utf8"));
+const { localCatalog, remoteCatalog: previousRemoteCatalog, discoveredTools } = loadReleaseContext(workspaceRoot);
 const distribution = resolveGithubDistribution(sourceConfig);
+
+function stripBuiltAt(value) {
+  if (!value) {
+    return null;
+  }
+
+  const nextValue = structuredClone(value);
+
+  if (nextValue.suite) {
+    delete nextValue.suite.builtAt;
+  }
+
+  return nextValue;
+}
 
 function replaceVersion(template, version) {
   return template.replaceAll("{version}", version);
@@ -60,15 +74,33 @@ const remoteApps = localCatalog.apps.map((appEntry) => {
   return nextEntry;
 });
 
-const remoteCatalog = {
+const nextRemoteCatalog = {
   ...localCatalog,
   suite: {
     ...localCatalog.suite,
     distribution,
-    manifestUrl: distribution.rawManifestUrl,
-    builtAt: new Date().toISOString()
+    manifestUrl: distribution.rawManifestUrl
   },
-  apps: remoteApps
+  apps: [
+    ...remoteApps,
+    ...(discoveredTools.apps || []).filter(
+      (discoveredApp) => !remoteApps.some((appEntry) => appEntry.id === discoveredApp.id)
+    )
+  ]
+};
+
+const hasMaterialChange =
+  JSON.stringify(stripBuiltAt(previousRemoteCatalog)) !== JSON.stringify(stripBuiltAt(nextRemoteCatalog));
+
+const remoteCatalog = {
+  ...nextRemoteCatalog,
+  suite: {
+    ...nextRemoteCatalog.suite,
+    builtAt:
+      hasMaterialChange || !previousRemoteCatalog?.suite?.builtAt
+        ? new Date().toISOString()
+        : previousRemoteCatalog.suite.builtAt
+  }
 };
 
 fs.writeFileSync(remoteCatalogPath, `${JSON.stringify(remoteCatalog, null, 2)}\n`, "utf8");

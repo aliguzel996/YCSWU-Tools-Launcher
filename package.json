@@ -10,6 +10,7 @@
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "print:catalog": "node scripts/validate-catalog.mjs --print",
     "sync:catalog": "node scripts/sync-local-catalog.mjs",
+    "discover:tools": "node scripts/discover-tool-repos.mjs",
     "build:remote-manifest": "node scripts/build-remote-manifest.mjs",
     "build:site": "node scripts/build-site-bundle.mjs",
     "stage:release": "node scripts/stage-release-bundle.mjs",
