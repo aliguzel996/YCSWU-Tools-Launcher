@@ -47,6 +47,7 @@ This launcher is designed to work with GitHub Releases and a machine-readable ca
 The repository now also includes a static website layer in `site/`.
 
 - The website page reads the same `catalog.json` used by the launcher
+- The website tries the GitHub-backed manifest first, then falls back to the bundled local catalog
 - The launcher tries the GitHub-backed manifest first, then falls back to the bundled local catalog
 - If GitHub Releases and `catalog.json` are updated, both the website and installed launcher can see the new versions
 
@@ -58,6 +59,25 @@ node scripts/build-site-bundle.mjs
 ```
 
 Then upload the contents of `site-dist/` into your cPanel folder for the tools page.
+
+## Automatic Release Sync
+
+This repository now includes `.github/workflows/sync-catalog-on-release.yml`.
+
+When a GitHub Release is published with a tag like:
+
+- `pixelmaxxxing-v1.0.1`
+- `ngon-junk-v1.1.1`
+- `2d-to-3d-v0.1.1`
+
+the workflow will:
+
+1. apply the release tag to `config/catalog.local.json`
+2. rebuild `config/catalog.remote.json`
+3. rebuild root `catalog.json`
+4. commit the updated manifest back to `main`
+
+That means the website and launcher can pick up the new version from the same catalog source after the release is published.
 
 ## English
 

@@ -1,6 +1,6 @@
 const MANIFEST_CANDIDATES = [
-  "./catalog.json",
-  "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
+  "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
+  "./catalog.json"
 ];
 
 const elements = {
