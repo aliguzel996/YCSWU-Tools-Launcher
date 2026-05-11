@@ -7,6 +7,8 @@
   "scripts": {
     "start": "electron .",
     "dev": "electron .",
+    "dist:win": "electron-builder --win portable",
+    "dist:setup": "electron-builder --win nsis",
     "validate:catalog": "node scripts/validate-catalog.mjs",
     "print:catalog": "node scripts/validate-catalog.mjs --print",
     "sync:catalog": "node scripts/sync-local-catalog.mjs",
@@ -34,8 +36,13 @@
     "asar": true,
     "win": {
       "icon": "build/icon.ico",
-      "signAndEditExecutable": false,
       "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        },
         {
           "target": "nsis",
           "arch": [
