@@ -2,6 +2,7 @@ node_modules/
 .npm-cache/
 release/
 release-staging/
+site-dist/
 debug.log
 
 # OS / editor

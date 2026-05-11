@@ -1,8 +1,8 @@
 {
   "distribution": {
     "type": "github-releases",
-    "owner": "YOUR_GITHUB_OWNER",
-    "repo": "YOUR_LAUNCHER_REPO",
+    "owner": "aliguzel996",
+    "repo": "YCSWU-Tools-Launcher",
     "manifestBranch": "main",
     "manifestPath": "catalog.json",
     "releaseTagPattern": "{appId}-v{version}"
@@ -13,7 +13,7 @@
       "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\pixelmaxxxing",
       "packageJsonPath": "package.json",
       "links": {
-        "siteUrl": "https://ycswu.co/araclar/",
+        "siteUrl": "https://ycswu.co/pixelmaxxxing/",
         "repoUrl": ""
       },
       "buildCommands": {
@@ -33,7 +33,7 @@
       "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\ngon-junk",
       "packageJsonPath": "package.json",
       "links": {
-        "siteUrl": "https://ycswu.co/araclar/",
+        "siteUrl": "https://ycswu.co/ngon-junk/",
         "repoUrl": ""
       },
       "buildCommands": {
@@ -50,7 +50,7 @@
       "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-23-masa-st-al-an-bulk-video",
       "packageJsonPath": "package.json",
       "links": {
-        "siteUrl": "https://ycswu.co/araclar/",
+        "siteUrl": "https://ycswu.co/gift-converter/",
         "repoUrl": ""
       },
       "buildCommands": {
@@ -69,7 +69,7 @@
       "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-25\\files-mentioned-by-the-user-ekran",
       "packageJsonPath": "package.json",
       "links": {
-        "siteUrl": "https://ycswu.co/araclar/",
+        "siteUrl": "https://ycswu.co/giffer/",
         "repoUrl": ""
       },
       "buildCommands": {
@@ -88,7 +88,7 @@
       "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-24\\vekt-re-renk-se-enekleri-uygulamas",
       "packageJsonPath": "package.json",
       "links": {
-        "siteUrl": "https://ycswu.co/araclar/",
+        "siteUrl": "https://ycswu.co/hot-vs-nice/",
         "repoUrl": ""
       },
       "buildCommands": {
@@ -107,7 +107,7 @@
       "repoPath": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D",
       "packageJsonPath": "package.json",
       "links": {
-        "siteUrl": "https://ycswu.co/araclar/",
+        "siteUrl": "https://ycswu.co/2d-to-3d/",
         "repoUrl": ""
       },
       "buildCommands": {

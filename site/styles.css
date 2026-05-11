@@ -1,0 +1,271 @@
+:root {
+  --bg: #d8d8d8;
+  --panel: #f1f1f1;
+  --ink: #050505;
+  --line: #111111;
+  --muted: #5d5d5d;
+  --hero: #ef131f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  padding: 10px;
+}
+
+a,
+button {
+  color: inherit;
+  font: inherit;
+}
+
+.site-shell {
+  display: grid;
+  gap: 8px;
+}
+
+.site-strip,
+.status-strip,
+.site-card,
+.site-intro {
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.site-strip {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 14px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.site-brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-mark,
+.site-title {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.site-meta {
+  text-transform: lowercase;
+}
+
+.site-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(340px, 520px);
+  gap: 8px;
+  min-height: 200px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.intro-copy {
+  display: flex;
+  align-items: flex-start;
+  line-height: 1.35;
+}
+
+.hero-link {
+  position: relative;
+  display: block;
+  min-height: 172px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.hero-bird {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
+  image-rendering: pixelated;
+}
+
+.hero-wordmark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 112px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+.status-strip {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  text-transform: lowercase;
+}
+
+.site-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.site-card {
+  display: grid;
+  gap: 8px;
+  padding: 0 0 10px;
+}
+
+.card-head {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  min-height: 98px;
+}
+
+.card-art {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 14px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.card-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.card-copy {
+  border-left: 1px solid var(--line);
+}
+
+.card-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px 6px;
+  background: #000000;
+  color: #ffffff;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.card-flags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.card-version,
+.card-channel {
+  min-height: 22px;
+  padding: 4px 8px;
+  border: 1px solid #ffffff;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 10px;
+}
+
+.card-headline,
+.card-description,
+.card-meta,
+.card-actions {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.card-headline,
+.card-description {
+  margin: 0;
+  line-height: 1.24;
+}
+
+.card-meta {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.site-button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  color: var(--ink);
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.site-button.ghost {
+  background: transparent;
+}
+
+.site-button.primary {
+  background: #000000;
+  color: #ffffff;
+}
+
+.site-error {
+  border: 1px solid var(--line);
+  background: #000000;
+  color: #ffffff;
+  padding: 14px;
+  line-height: 1.35;
+}
+
+@media (max-width: 980px) {
+  .site-intro,
+  .site-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .status-strip,
+  .site-strip {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-link {
+    min-height: 150px;
+  }
+
+  .hero-wordmark {
+    height: 84px;
+  }
+}

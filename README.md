@@ -42,6 +42,23 @@ This launcher is designed to work with GitHub Releases and a machine-readable ca
 - Expected release source: GitHub Releases
 - Expected manifest source: `catalog.json` in the repository
 
+## Website Sync
+
+The repository now also includes a static website layer in `site/`.
+
+- The website page reads the same `catalog.json` used by the launcher
+- The launcher tries the GitHub-backed manifest first, then falls back to the bundled local catalog
+- If GitHub Releases and `catalog.json` are updated, both the website and installed launcher can see the new versions
+
+For a cPanel upload bundle:
+
+```powershell
+node scripts/build-remote-manifest.mjs
+node scripts/build-site-bundle.mjs
+```
+
+Then upload the contents of `site-dist/` into your cPanel folder for the tools page.
+
 ## English
 
 YCSWU Tools Launcher is a desktop hub for a small group of weird, practical, visual tools. It is not a generic app store and it is not trying to look polished in a corporate way. It is a compact control panel for installing, opening, updating, and tracking YCSWU tools from one place.

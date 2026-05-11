@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YCSWU Tools</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-strip">
+        <div class="site-brand">
+          <div class="site-mark">YCSWU TOOLS</div>
+          <div class="site-title">araclar + updates</div>
+        </div>
+        <div class="site-meta" id="site-meta">loading catalog...</div>
+      </header>
+
+      <section class="site-intro">
+        <div class="intro-copy">
+          <p>
+            This page reads the same machine-readable catalog used by the YCSWU Tools launcher. When GitHub releases
+            and the catalog move forward, this page moves with them.
+          </p>
+        </div>
+        <a class="hero-link" href="https://ycswu.co/" target="_blank" rel="noreferrer">
+          <img class="hero-bird" src="./assets/favicon.svg" alt="YCSWU" />
+          <img class="hero-wordmark" src="./assets/Group.svg" alt="YCSWU" />
+        </a>
+      </section>
+
+      <section class="status-strip">
+        <div id="manifest-source">manifest source: pending</div>
+        <div id="sync-stamp">last sync: pending</div>
+      </section>
+
+      <section id="site-grid" class="site-grid"></section>
+    </main>
+
+    <template id="site-card-template">
+      <article class="site-card">
+        <div class="card-head">
+          <div class="card-art"></div>
+          <div class="card-copy">
+            <div class="card-title-row">
+              <h2 class="card-title"></h2>
+              <div class="card-flags">
+                <span class="card-version"></span>
+                <span class="card-channel"></span>
+              </div>
+            </div>
+            <p class="card-headline"></p>
+          </div>
+        </div>
+        <p class="card-description"></p>
+        <div class="card-meta"></div>
+        <div class="card-actions"></div>
+      </article>
+    </template>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

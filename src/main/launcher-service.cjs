@@ -201,8 +201,14 @@ class CatalogStore {
 
   async loadManifest() {
     const runtime = resolveRuntimeConfig(this.workspaceRoot, this.userDataPath, this.manifestOverride);
+    const bundledManifest = readJson(runtime.manifestCandidates.at(-1), null);
+    const bundledRemoteUrl =
+      bundledManifest?.suite?.manifestUrl || bundledManifest?.suite?.distribution?.rawManifestUrl || "";
+    const manifestCandidates = [...runtime.manifestCandidates.slice(0, -1), bundledRemoteUrl, runtime.manifestCandidates.at(-1)]
+      .filter(Boolean)
+      .filter((candidate, index, array) => array.indexOf(candidate) === index);
 
-    for (const candidate of runtime.manifestCandidates) {
+    for (const candidate of manifestCandidates) {
       try {
         const manifest = await this.readCandidate(candidate);
         const enrichedManifest = await this.mergeGithubReleaseState(manifest);

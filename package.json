@@ -11,6 +11,7 @@
     "print:catalog": "node scripts/validate-catalog.mjs --print",
     "sync:catalog": "node scripts/sync-local-catalog.mjs",
     "build:remote-manifest": "node scripts/build-remote-manifest.mjs",
+    "build:site": "node scripts/build-site-bundle.mjs",
     "stage:release": "node scripts/stage-release-bundle.mjs",
     "build:apps": "node scripts/run-app-build.mjs",
     "publish:github": "node scripts/publish-github-release.mjs"
