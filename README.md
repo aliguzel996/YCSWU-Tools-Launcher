@@ -79,6 +79,8 @@ the workflow will:
 
 That means the website and launcher can pick up the new version from the same catalog source after the release is published.
 
+The release workflow now also verifies that the published release contains the expected asset file for the target app before the catalog is updated. If the release tag is correct but the asset name is wrong or missing, the workflow fails instead of silently publishing a broken catalog.
+
 ## English
 
 YCSWU Tools Launcher is a desktop hub for a small group of weird, practical, visual tools. It is not a generic app store and it is not trying to look polished in a corporate way. It is a compact control panel for installing, opening, updating, and tracking YCSWU tools from one place.

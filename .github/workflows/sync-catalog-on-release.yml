@@ -43,6 +43,10 @@ jobs:
             echo "prerelease=${{ github.event.release.prerelease }}" >> "$GITHUB_OUTPUT"
           fi
 
+      - name: Verify release assets
+        if: ${{ github.event_name != 'workflow_dispatch' }}
+        run: node scripts/verify-release-assets.mjs --tag=${{ steps.release_meta.outputs.tag }}
+
       - name: Apply release tag to local catalog
         run: node scripts/apply-release-tag.mjs --tag=${{ steps.release_meta.outputs.tag }}
         env:
