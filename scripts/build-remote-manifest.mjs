@@ -34,14 +34,42 @@ function replaceVersion(template, version) {
   return template.replaceAll("{version}", version);
 }
 
-function remoteUrlFor(appId, relativeTemplate, version) {
+function parseGithubRepoUrl(repoUrl = "") {
+  const match = repoUrl.match(/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?$/i);
+
+  if (!match) {
+    return null;
+  }
+
+  return {
+    owner: match[1],
+    repo: match[2]
+  };
+}
+
+function distributionForApp(sourceEntry) {
+  const repoRef = parseGithubRepoUrl(sourceEntry?.links?.repoUrl || "");
+
+  if (repoRef) {
+    return {
+      ...distribution,
+      owner: repoRef.owner,
+      repo: repoRef.repo
+    };
+  }
+
+  return distribution;
+}
+
+function remoteUrlFor(appId, relativeTemplate, version, sourceEntry) {
   if (!relativeTemplate) {
     return "";
   }
 
   const fileName = path.basename(replaceVersion(relativeTemplate, version));
-  const tag = buildReleaseTag(distribution, appId, version);
-  return buildGithubReleaseAssetUrl(distribution, tag, fileName);
+  const appDistribution = distributionForApp(sourceEntry);
+  const tag = buildReleaseTag(appDistribution, appId, version);
+  return buildGithubReleaseAssetUrl(appDistribution, tag, fileName);
 }
 
 const remoteApps = localCatalog.apps.map((appEntry) => {
@@ -52,23 +80,32 @@ const remoteApps = localCatalog.apps.map((appEntry) => {
     return nextEntry;
   }
 
+  nextEntry.links = {
+    ...nextEntry.links,
+    ...sourceEntry.links
+  };
+
   if (nextEntry.install.strategy === "portable") {
-    const url = remoteUrlFor(appEntry.id, sourceEntry.artifacts.portable, appEntry.version);
+    const url = remoteUrlFor(appEntry.id, sourceEntry.artifacts.portable, appEntry.version, sourceEntry);
     nextEntry.install.packageUrl = url;
     nextEntry.install.portableUrl = url;
   } else {
-    nextEntry.install.installerUrl = remoteUrlFor(appEntry.id, sourceEntry.artifacts.installer, appEntry.version);
+    nextEntry.install.installerUrl = remoteUrlFor(
+      appEntry.id,
+      sourceEntry.artifacts.installer,
+      appEntry.version,
+      sourceEntry
+    );
   }
+
+  const appDistribution = distributionForApp(sourceEntry);
+  const releaseTag = buildReleaseTag(appDistribution, appEntry.id, appEntry.version);
 
   nextEntry.source = {
     ...nextEntry.source,
-    releaseTag: buildReleaseTag(distribution, appEntry.id, appEntry.version),
-    releaseTagPrefix: buildReleaseTagPrefix(distribution, appEntry.id),
-    remoteBaseUrl: `https://github.com/${distribution.owner}/${distribution.repo}/releases/tag/${buildReleaseTag(
-      distribution,
-      appEntry.id,
-      appEntry.version
-    )}`
+    releaseTag,
+    releaseTagPrefix: buildReleaseTagPrefix(appDistribution, appEntry.id),
+    remoteBaseUrl: `https://github.com/${appDistribution.owner}/${appDistribution.repo}/releases/tag/${releaseTag}`
   };
 
   return nextEntry;

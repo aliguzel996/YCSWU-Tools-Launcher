@@ -14,7 +14,7 @@
       "packageJsonPath": "package.json",
       "links": {
         "siteUrl": "https://ycswu.co/pixelmaxxxing/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/algzl/pixelmaxxxing"
       },
       "buildCommands": {
         "portable": "npm.cmd run dist:win",
@@ -34,7 +34,7 @@
       "packageJsonPath": "package.json",
       "links": {
         "siteUrl": "https://ycswu.co/ngon-junk/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/algzl/ngon-junk"
       },
       "buildCommands": {
         "portable": "npm.cmd run dist:win"
@@ -51,7 +51,7 @@
       "packageJsonPath": "package.json",
       "links": {
         "siteUrl": "https://ycswu.co/gift-converter/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/algzl/GIFt-converter"
       },
       "buildCommands": {
         "portable": "npm.cmd run dist:win",
@@ -70,7 +70,7 @@
       "packageJsonPath": "package.json",
       "links": {
         "siteUrl": "https://ycswu.co/giffer/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/aliguzel996/giffer"
       },
       "buildCommands": {
         "portable": "npm.cmd run desktop:build",
@@ -89,7 +89,7 @@
       "packageJsonPath": "package.json",
       "links": {
         "siteUrl": "https://ycswu.co/hot-vs-nice/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/aliguzel996/hot-vs-nice"
       },
       "buildCommands": {
         "portable": "npm.cmd run dist:github",
@@ -108,7 +108,7 @@
       "packageJsonPath": "package.json",
       "links": {
         "siteUrl": "https://ycswu.co/2d-to-3d/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/aliguzel996/2D-to-3D"
       },
       "buildCommands": {
         "portable": "npm.cmd run build:windows",

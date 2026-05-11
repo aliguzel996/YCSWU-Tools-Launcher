@@ -4,7 +4,7 @@
     "channel": "stable",
     "manifestVersion": "1.0.0",
     "supportUrl": "https://ycswu.co/araclar/",
-    "syncedAt": "2026-05-09T20:50:00.553Z",
+    "syncedAt": "2026-05-11T20:35:06.472Z",
     "distribution": {
       "type": "github-releases",
       "owner": "aliguzel996",
@@ -31,7 +31,7 @@
       },
       "links": {
         "siteUrl": "https://ycswu.co/pixelmaxxxing/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/algzl/pixelmaxxxing"
       },
       "install": {
         "strategy": "portable",
@@ -75,7 +75,7 @@
       },
       "links": {
         "siteUrl": "https://ycswu.co/ngon-junk/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/algzl/ngon-junk"
       },
       "install": {
         "strategy": "portable",
@@ -118,7 +118,7 @@
       },
       "links": {
         "siteUrl": "https://ycswu.co/gift-converter/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/algzl/GIFt-converter"
       },
       "install": {
         "strategy": "portable",
@@ -162,7 +162,7 @@
       },
       "links": {
         "siteUrl": "https://ycswu.co/giffer/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/aliguzel996/giffer"
       },
       "install": {
         "strategy": "nsis",
@@ -206,7 +206,7 @@
       },
       "links": {
         "siteUrl": "https://ycswu.co/hot-vs-nice/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/aliguzel996/hot-vs-nice"
       },
       "install": {
         "strategy": "nsis",
@@ -250,7 +250,7 @@
       },
       "links": {
         "siteUrl": "https://ycswu.co/2d-to-3d/",
-        "repoUrl": ""
+        "repoUrl": "https://github.com/aliguzel996/2D-to-3D"
       },
       "install": {
         "strategy": "portable",

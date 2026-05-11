@@ -155,6 +155,19 @@ function resolveGithubUrl(appEntry, manifest) {
   return "";
 }
 
+function parseGithubRepoUrl(repoUrl = "") {
+  const match = repoUrl.match(/github\.com\/([^/]+)\/([^/]+?)(?:\.git)?(?:\/|$)/i);
+
+  if (!match) {
+    return null;
+  }
+
+  return {
+    owner: match[1],
+    repo: match[2]
+  };
+}
+
 async function downloadToFile(url, targetPath) {
   const response = await fetch(url, { cache: "no-store" });
 
@@ -255,36 +268,41 @@ class CatalogStore {
   }
 
   async mergeGithubReleaseState(manifest) {
-    const distribution = manifest?.suite?.distribution;
-
-    if (
-      !distribution ||
-      distribution.type !== "github-releases" ||
-      !distribution.owner ||
-      !distribution.repo ||
-      distribution.owner === "YOUR_GITHUB_OWNER" ||
-      distribution.repo === "YOUR_LAUNCHER_REPO"
-    ) {
-      return manifest;
-    }
-
     try {
-      const response = await fetch(
-        `https://api.github.com/repos/${distribution.owner}/${distribution.repo}/releases?per_page=100`,
-        {
-          headers: {
-            Accept: "application/vnd.github+json",
-            "User-Agent": "ycswu-launcher"
+      const releaseCache = new Map();
+      const nextApps = [];
+
+      for (const appEntry of manifest.apps) {
+        const githubRepo = parseGithubRepoUrl(resolveGithubUrl(appEntry, manifest));
+
+        if (!githubRepo) {
+          nextApps.push(appEntry);
+          continue;
+        }
+
+        const repoKey = `${githubRepo.owner}/${githubRepo.repo}`;
+
+        if (!releaseCache.has(repoKey)) {
+          const response = await fetch(
+            `https://api.github.com/repos/${githubRepo.owner}/${githubRepo.repo}/releases?per_page=100`,
+            {
+              headers: {
+                Accept: "application/vnd.github+json",
+                "User-Agent": "ycswu-launcher"
+              }
+            }
+          );
+
+          if (!response.ok) {
+            releaseCache.set(repoKey, null);
+          } else {
+            releaseCache.set(repoKey, await response.json());
           }
         }
-      );
 
-      if (!response.ok) {
-        return manifest;
+        const releases = releaseCache.get(repoKey);
+        nextApps.push(Array.isArray(releases) ? this.mergeGithubReleaseForApp(appEntry, releases) : appEntry);
       }
-
-      const releases = await response.json();
-      const nextApps = manifest.apps.map((appEntry) => this.mergeGithubReleaseForApp(appEntry, releases));
 
       return {
         ...manifest,
