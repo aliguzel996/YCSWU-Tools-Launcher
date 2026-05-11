@@ -79,9 +79,9 @@ function renderCard(appEntry) {
     );
   }
 
-  if (appEntry.source?.remoteBaseUrl) {
+  if (appEntry.links?.repoUrl) {
     buttons.push(
-      `<a class="site-button ghost" href="${escapeHtml(appEntry.source.remoteBaseUrl)}" target="_blank" rel="noreferrer">release page</a>`
+      `<a class="site-button ghost" href="${escapeHtml(appEntry.links.repoUrl)}" target="_blank" rel="noreferrer">github</a>`
     );
   }
 
