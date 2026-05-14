@@ -1,5 +1,45 @@
 {
   "owner": "aliguzel996",
-  "syncedAt": "2026-05-14T00:16:07.580Z",
-  "apps": []
+  "syncedAt": "2026-05-14T04:15:58.180Z",
+  "apps": [
+    {
+      "id": "ycswu.giffer",
+      "name": "Giffer",
+      "headline": "Free open-source tool for turning image sequences or a single video into GIF or MOV with live preview and frame controls.",
+      "description": "Free open-source tool for turning image sequences or a single video into GIF or MOV with live preview and frame controls.",
+      "version": "0.1",
+      "channel": "stable",
+      "art": {
+        "monogram": "G",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": ""
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/ycswu.giffer/",
+        "repoUrl": "https://github.com/aliguzel996/giffer"
+      },
+      "install": {
+        "strategy": "nsis",
+        "packageUrl": "",
+        "portableUrl": "",
+        "installerUrl": "https://github.com/aliguzel996/giffer/releases/download/v0.1/Giffer.Setup.exe",
+        "launchExecutable": "Giffer.exe",
+        "installDirName": "ycswu.giffer",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/giffer",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "ycswu.giffer-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/giffer/releases/tag/v0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    }
+  ]
 }
