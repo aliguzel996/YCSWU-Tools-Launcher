@@ -8,53 +8,58 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="site-shell">
-      <header class="site-strip">
-        <div class="site-brand">
-          <div class="site-mark">YCSWU TOOLS</div>
-          <div class="site-title">araclar + updates</div>
-        </div>
-        <div class="site-meta" id="site-meta">loading catalog...</div>
-      </header>
+    <div class="shell">
+      <section class="catalog-column">
+        <header class="suite-strip">
+          <div class="suite-brand">
+            <h1 class="suite-mark">YCSWU TOOLS</h1>
+            <h1 class="suite-title">apps + updates</h1>
+          </div>
+          <div class="suite-actions">
+            <button id="refresh-button" class="small-button" type="button">refresh</button>
+          </div>
+        </header>
 
-      <section class="site-intro">
-        <div class="intro-copy">
-          <p>
-            This page reads the same machine-readable catalog used by the YCSWU Tools launcher. When GitHub releases
-            and the catalog move forward, this page moves with them.
-          </p>
-        </div>
-        <a class="hero-link" href="https://ycswu.co/" target="_blank" rel="noreferrer">
-          <img class="hero-bird" src="./assets/favicon.svg" alt="YCSWU" />
-          <img class="hero-wordmark" src="./assets/Group.svg" alt="YCSWU" />
-        </a>
+        <div id="app-grid" class="app-grid"></div>
       </section>
 
-      <section class="status-strip">
-        <div id="manifest-source">manifest source: pending</div>
-        <div id="sync-stamp">last sync: pending</div>
-      </section>
+      <aside class="detail-column">
+        <section class="hero-panel">
+          <div class="hero-brandmark" aria-hidden="true">
+            <button class="hero-logo-link" id="hero-site-link" type="button" aria-label="Open ycswu.co">
+              <img class="hero-logo" src="./assets/favicon.svg" alt="" />
+            </button>
+            <button class="hero-wordmark-link" id="hero-wordmark-link" type="button" aria-label="Open ycswu.co">
+              <img class="hero-wordmark" src="./assets/Group.svg" alt="" />
+            </button>
+          </div>
+        </section>
 
-      <section id="site-grid" class="site-grid"></section>
-    </main>
+        <section id="detail-panel" class="detail-panel"></section>
 
-    <template id="site-card-template">
-      <article class="site-card">
+        <section class="activity-panel">
+          <div class="panel-title">activity log</div>
+          <div id="activity-log" class="activity-log"></div>
+        </section>
+      </aside>
+    </div>
+
+    <template id="app-card-template">
+      <article class="tool-card">
         <div class="card-head">
-          <div class="card-art"></div>
-          <div class="card-copy">
+          <div class="art-badge"></div>
+          <div class="head-copy">
             <div class="card-title-row">
               <h2 class="card-title"></h2>
               <div class="card-flags">
-                <span class="card-version"></span>
-                <span class="card-channel"></span>
+                <span class="version-pill"></span>
+                <span class="status-pill"></span>
               </div>
             </div>
             <p class="card-headline"></p>
           </div>
         </div>
         <p class="card-description"></p>
-        <div class="card-meta"></div>
         <div class="card-actions"></div>
       </article>
     </template>

@@ -106,6 +106,89 @@ function createMonogram(name = "YT") {
     .toUpperCase();
 }
 
+function normalizeToolKey(value = "") {
+  return String(value).trim().toLowerCase();
+}
+
+function translateEnglishDescriptionToTurkish(text = "") {
+  const source = String(text).trim();
+
+  if (!source) {
+    return "";
+  }
+
+  const directPatterns = [
+    [
+      /^free open-source tool for turning image sequences or a single video into gif or mov with live preview and frame controls\.?$/i,
+      "Image sequence'leri veya tek bir videoyu canli onizleme ve kare kontrolleriyle GIF ya da MOV'a donusturen ucretsiz ve acik kaynakli arac."
+    ],
+    [
+      /^free open-source creative tool for (.+) without (.+)\.?$/i,
+      (_, mainFunction, avoidedThing) =>
+        `${String(mainFunction).trim()} icin ucretsiz ve acik kaynakli yaratici arac; ${String(avoidedThing).trim()} olmadan calisir.`
+    ]
+  ];
+
+  for (const [pattern, replacement] of directPatterns) {
+    if (pattern.test(source)) {
+      return typeof replacement === "function" ? replacement(...source.match(pattern)) : replacement;
+    }
+  }
+
+  let translated = source;
+
+  const glossary = [
+    [/^free open-source /gi, "ucretsiz ve acik kaynakli "],
+    [/^free open-source tool /gi, "ucretsiz ve acik kaynakli arac "],
+    [/^free open-source creative tool /gi, "ucretsiz ve acik kaynakli yaratıcı arac "],
+    [/\btool for\b/gi, "arac "],
+    [/\bfor turning\b/gi, "donusturen"],
+    [/\bfor creating\b/gi, "olusturan"],
+    [/\bfor making\b/gi, "ureten"],
+    [/\bfor editing\b/gi, "duzenleyen"],
+    [/\bturning\b/gi, "donusturen"],
+    [/\bimage sequences\b/gi, "image sequence'ler"],
+    [/\bimage sequence\b/gi, "image sequence"],
+    [/\ba single video\b/gi, "tek bir video"],
+    [/\bsingle video\b/gi, "tek video"],
+    [/\binto GIF or MOV\b/gi, "GIF ya da MOV'a"],
+    [/\binto GIF\b/gi, "GIF'e"],
+    [/\binto MOV\b/gi, "MOV'a"],
+    [/\bwith live preview\b/gi, "canli onizleme ile"],
+    [/\band frame controls\b/gi, "ve kare kontrolleriyle"],
+    [/\bwith frame controls\b/gi, "kare kontrolleriyle"],
+    [/\bwith crop controls\b/gi, "kirma kontrolleriyle"],
+    [/\bwith export controls\b/gi, "export kontrolleriyle"],
+    [/\blive preview\b/gi, "canli onizleme"],
+    [/\bframe controls\b/gi, "kare kontrolleri"],
+    [/\bcrop controls\b/gi, "kirma kontrolleri"],
+    [/\bexport bundles\b/gi, "toplu export paketleri"],
+    [/\bbatch\b/gi, "toplu"],
+    [/\bpreview\b/gi, "onizleme"],
+    [/\boutput\b/gi, "cikti"],
+    [/\bexport\b/gi, "export"],
+    [/\bwithout\b/gi, "olmadan"],
+    [/\bcreative tool\b/gi, "yaratici arac"],
+    [/\btool\b/gi, "arac"]
+  ];
+
+  for (const [pattern, replacement] of glossary) {
+    translated = translated.replace(pattern, replacement);
+  }
+
+  translated = translated
+    .replace(/\s+/g, " ")
+    .replace(/\s+([,.;:!?])/g, "$1")
+    .trim();
+
+  if (!/[.!?]$/.test(translated)) {
+    translated += ".";
+  }
+
+  translated = translated.charAt(0).toUpperCase() + translated.slice(1);
+  return translated;
+}
+
 function inferVersion(tagName, manifest, repoName) {
   if (tagName) {
     const candidates = [
@@ -201,12 +284,19 @@ function normalizeDiscoveredTool(repo, manifest, manifestPath, release) {
   const install = pickReleaseAssets(release, manifest);
   const repoUrl = manifest.github || repo.html_url || "";
   const id = manifest.id || repo.name;
+  const turkishDescription =
+    manifest.descriptionTr ||
+    manifest.description_tr ||
+    manifest.trDescription ||
+    manifest.translations?.tr?.description ||
+    manifest.localized?.tr?.description ||
+    translateEnglishDescriptionToTurkish(manifest.shortDescription || manifest.aiDescription || "");
 
   return {
     id,
     name: manifest.name || repo.name,
     headline: manifest.shortDescription || manifest.aiDescription || `${repo.name} tool`,
-    description: manifest.shortDescription || manifest.aiDescription || `${repo.name} tool`,
+    description: turkishDescription,
     version,
     channel: release?.prerelease ? "beta" : "stable",
     art: {
@@ -243,7 +333,11 @@ function normalizeDiscoveredTool(repo, manifest, manifestPath, release) {
   };
 }
 
-const knownIds = new Set(localCatalog.apps.map((appEntry) => appEntry.id));
+const knownIds = new Set(localCatalog.apps.map((appEntry) => normalizeToolKey(appEntry.id)));
+const knownNames = new Set(localCatalog.apps.map((appEntry) => normalizeToolKey(appEntry.name)));
+const knownRepoUrls = new Set(
+  localCatalog.apps.map((appEntry) => normalizeToolKey(appEntry.links?.repoUrl || "")).filter(Boolean)
+);
 const repos = await listOwnedRepos();
 const discoveredApps = [];
 
@@ -264,8 +358,15 @@ for (const repo of repos) {
 
   const { manifest, manifestPath } = manifestResult;
   const toolId = manifest.id || repo.name;
+  const normalizedToolId = normalizeToolKey(toolId);
+  const normalizedToolName = normalizeToolKey(manifest.name || repo.name);
+  const normalizedRepoUrl = normalizeToolKey(manifest.github || repo.html_url || "");
 
-  if (knownIds.has(toolId)) {
+  if (
+    knownIds.has(normalizedToolId) ||
+    knownNames.has(normalizedToolName) ||
+    (normalizedRepoUrl && knownRepoUrls.has(normalizedRepoUrl))
+  ) {
     continue;
   }
 

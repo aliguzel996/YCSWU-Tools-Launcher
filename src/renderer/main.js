@@ -77,18 +77,6 @@ function openInfo(appId) {
 function renderCardActions(appEntry) {
   const buttons = [];
 
-  if (appEntry.availableActions.install) {
-    buttons.push(`<button class="small-button" data-run-action="install" type="button">install</button>`);
-  }
-
-  if (appEntry.availableActions.open) {
-    buttons.push(`<button class="small-button" data-run-action="launch" type="button">open</button>`);
-  }
-
-  if (appEntry.availableActions.update) {
-    buttons.push(`<button class="small-button" data-run-action="update" type="button">update</button>`);
-  }
-
   if (appEntry.availableActions.github) {
     buttons.push(
       `<button class="small-button ghost" data-open-github="${escapeHtml(appEntry.githubUrl)}" type="button">github</button>`
@@ -100,8 +88,6 @@ function renderCardActions(appEntry) {
       `<button class="small-button ghost" data-open-web="${escapeHtml(appEntry.links.siteUrl)}" type="button">try on web</button>`
     );
   }
-
-  buttons.push(`<button class="small-button ghost" data-open-info="true" type="button">info</button>`);
 
   return buttons.join("");
 }
@@ -154,16 +140,8 @@ function renderGrid() {
     }
 
     node.addEventListener("click", async (event) => {
-      const actionButton = event.target.closest("[data-run-action]");
       const githubButton = event.target.closest("[data-open-github]");
       const webButton = event.target.closest("[data-open-web]");
-      const infoButton = event.target.closest("[data-open-info]");
-
-      if (actionButton) {
-        event.stopPropagation();
-        await handleAction(appEntry.id, actionButton.dataset.runAction);
-        return;
-      }
 
       if (githubButton) {
         event.stopPropagation();
@@ -174,12 +152,6 @@ function renderGrid() {
       if (webButton) {
         event.stopPropagation();
         await openExternalLink(webButton.dataset.openWeb, "Web tool page opened.");
-        return;
-      }
-
-      if (infoButton) {
-        event.stopPropagation();
-        openInfo(appEntry.id);
         return;
       }
 
@@ -335,18 +307,6 @@ function renderToolHub() {
 function renderDetailActions(appEntry) {
   const buttons = [];
 
-  if (appEntry.availableActions.install) {
-    buttons.push(`<button class="primary-button" data-detail-action="install" type="button">install</button>`);
-  }
-
-  if (appEntry.availableActions.open) {
-    buttons.push(`<button class="primary-button" data-detail-action="launch" type="button">open</button>`);
-  }
-
-  if (appEntry.availableActions.update) {
-    buttons.push(`<button class="primary-button" data-detail-action="update" type="button">update</button>`);
-  }
-
   if (appEntry.availableActions.github) {
     buttons.push(
       `<button class="small-button ghost" data-detail-github="${escapeHtml(appEntry.githubUrl)}" type="button">github</button>`
@@ -484,12 +444,6 @@ function bindToolHubEvents() {
 }
 
 function bindDetailEvents(appEntry) {
-  for (const actionButton of elements.detailPanel.querySelectorAll("[data-detail-action]")) {
-    actionButton.addEventListener("click", async () => {
-      await handleAction(appEntry.id, actionButton.dataset.detailAction);
-    });
-  }
-
   for (const githubButton of elements.detailPanel.querySelectorAll("[data-detail-github]")) {
     githubButton.addEventListener("click", async () => {
       await openExternalLink(githubButton.dataset.detailGithub, "GitHub link opened.");

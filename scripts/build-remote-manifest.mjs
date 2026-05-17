@@ -47,6 +47,42 @@ function parseGithubRepoUrl(repoUrl = "") {
   };
 }
 
+function normalizeToolKey(value = "") {
+  return String(value).trim().toLowerCase();
+}
+
+function dedupeApps(apps) {
+  const seenIds = new Set();
+  const seenNames = new Set();
+  const seenRepoUrls = new Set();
+  const result = [];
+
+  for (const appEntry of apps) {
+    const normalizedId = normalizeToolKey(appEntry.id);
+    const normalizedName = normalizeToolKey(appEntry.name);
+    const normalizedRepoUrl = normalizeToolKey(appEntry.links?.repoUrl || "");
+
+    if (
+      seenIds.has(normalizedId) ||
+      seenNames.has(normalizedName) ||
+      (normalizedRepoUrl && seenRepoUrls.has(normalizedRepoUrl))
+    ) {
+      continue;
+    }
+
+    seenIds.add(normalizedId);
+    seenNames.add(normalizedName);
+
+    if (normalizedRepoUrl) {
+      seenRepoUrls.add(normalizedRepoUrl);
+    }
+
+    result.push(appEntry);
+  }
+
+  return result;
+}
+
 function distributionForApp(sourceEntry) {
   const repoRef = parseGithubRepoUrl(sourceEntry?.links?.repoUrl || "");
 
@@ -118,12 +154,7 @@ const nextRemoteCatalog = {
     distribution,
     manifestUrl: distribution.rawManifestUrl
   },
-  apps: [
-    ...remoteApps,
-    ...(discoveredTools.apps || []).filter(
-      (discoveredApp) => !remoteApps.some((appEntry) => appEntry.id === discoveredApp.id)
-    )
-  ]
+  apps: dedupeApps([...remoteApps, ...(discoveredTools.apps || [])])
 };
 
 const hasMaterialChange =
