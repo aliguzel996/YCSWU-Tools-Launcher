@@ -15,7 +15,7 @@
       "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
     "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-    "builtAt": "2026-05-17T22:09:22.878Z"
+    "builtAt": "2026-05-19T18:52:34.107Z"
   },
   "apps": [
     {
@@ -291,6 +291,45 @@
         },
         "releaseTag": "2d-to-3d-v0.1.0",
         "remoteBaseUrl": "https://github.com/aliguzel996/2D-to-3D/releases/tag/2d-to-3d-v0.1.0"
+      }
+    },
+    {
+      "id": "fibonacci-grid-maker",
+      "name": "fibonacci-grid-maker",
+      "headline": "Free open-source creative tool for building Fibonacci-based grid layouts without manual ratio setup.",
+      "description": "building Fibonacci-based grid layouts icin ucretsiz ve acik kaynakli yaratici arac; manual ratio setup. olmadan calisir.",
+      "version": "0.0.1",
+      "channel": "stable",
+      "art": {
+        "monogram": "FG",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": ""
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/fibonacci-grid-maker/",
+        "repoUrl": "https://github.com/aliguzel996/fibonacci-grid-maker"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.0.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.0.1.0.exe",
+        "installerUrl": "",
+        "launchExecutable": "fibonacci-grid-maker.exe",
+        "installDirName": "fibonacci-grid-maker",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/fibonacci-grid-maker",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "fibonacci-grid-maker-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.0.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
       }
     }
   ]
