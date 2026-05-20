@@ -15,7 +15,7 @@
       "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
     "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-    "builtAt": "2026-05-19T18:52:34.107Z"
+    "builtAt": "2026-05-20T20:38:07.186Z"
   },
   "apps": [
     {
@@ -328,6 +328,45 @@
         "localArtifacts": {},
         "releaseTag": "v0.0.1",
         "remoteBaseUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "rooms",
+      "name": "rooms",
+      "headline": "Free open-source room-builder tool for designing box and sphere rooms, placing windows or glass patches, previewing lighting, and exporting images, SVG line art, or FBX scenes.",
+      "description": "Ucretsiz ve acik kaynakli room-builder arac designing box and sphere rooms, placing windows or glass patches, previewing lighting, and exporting images, SVG line art, or FBX scenes.",
+      "version": "0.1.1",
+      "channel": "stable",
+      "art": {
+        "monogram": "R",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": ""
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/rooms/",
+        "repoUrl": "https://github.com/aliguzel996/rooms"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "",
+        "portableUrl": "",
+        "installerUrl": "",
+        "launchExecutable": "rooms.exe",
+        "installDirName": "rooms",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/rooms",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "rooms-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "rooms-v0.1.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/rooms",
         "autoDiscovered": true,
         "discoverySource": "app.manifest.json"
       }
