@@ -15,7 +15,7 @@
       "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
     "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-    "builtAt": "2026-05-20T20:38:07.186Z"
+    "builtAt": "2026-05-20T22:45:20.056Z"
   },
   "apps": [
     {
@@ -335,8 +335,8 @@
     {
       "id": "rooms",
       "name": "rooms",
-      "headline": "Free open-source room-builder tool for designing box and sphere rooms, placing windows or glass patches, previewing lighting, and exporting images, SVG line art, or FBX scenes.",
-      "description": "Ucretsiz ve acik kaynakli room-builder arac designing box and sphere rooms, placing windows or glass patches, previewing lighting, and exporting images, SVG line art, or FBX scenes.",
+      "headline": "Free open-source room builder for box and sphere rooms with window/glass placement, lighting preview, and image, SVG, or FBX export.",
+      "description": "Kutu ve küre oda tasarlamak, pencere veya cam yüzey yerleştirmek, ışığı önizlemek ve görüntü, SVG çizgi ya da FBX sahne dosyası dışa aktarmak için ücretsiz ve açık kaynaklı oda tasarım aracı.",
       "version": "0.1.1",
       "channel": "stable",
       "art": {

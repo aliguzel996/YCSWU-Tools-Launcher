@@ -1,6 +1,6 @@
 {
   "owner": "aliguzel996",
-  "syncedAt": "2026-05-20T21:14:34.212Z",
+  "syncedAt": "2026-05-20T22:45:19.992Z",
   "apps": [
     {
       "id": "fibonacci-grid-maker",
@@ -44,8 +44,8 @@
     {
       "id": "rooms",
       "name": "rooms",
-      "headline": "Free open-source room-builder tool for designing box and sphere rooms, placing windows or glass patches, previewing lighting, and exporting images, SVG line art, or FBX scenes.",
-      "description": "Ucretsiz ve acik kaynakli room-builder arac designing box and sphere rooms, placing windows or glass patches, previewing lighting, and exporting images, SVG line art, or FBX scenes.",
+      "headline": "Free open-source room builder for box and sphere rooms with window/glass placement, lighting preview, and image, SVG, or FBX export.",
+      "description": "Kutu ve küre oda tasarlamak, pencere veya cam yüzey yerleştirmek, ışığı önizlemek ve görüntü, SVG çizgi ya da FBX sahne dosyası dışa aktarmak için ücretsiz ve açık kaynaklı oda tasarım aracı.",
       "version": "0.1.1",
       "channel": "stable",
       "art": {
