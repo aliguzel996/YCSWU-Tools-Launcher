@@ -15,7 +15,7 @@
       "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
     "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-    "builtAt": "2026-05-21T00:18:59.562Z"
+    "builtAt": "2026-05-21T21:49:47.563Z"
   },
   "apps": [
     {
@@ -328,6 +328,45 @@
         "localArtifacts": {},
         "releaseTag": "v0.0.1",
         "remoteBaseUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "moire-maker",
+      "name": "Moire Maker",
+      "headline": "Creates moire screen-camera interference effects from images and videos.",
+      "description": "Creates moire screen-camera interference effects from images and videos.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "MM",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": ""
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/moire-maker/",
+        "repoUrl": "https://github.com/aliguzel996/moire-maker"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "",
+        "portableUrl": "",
+        "installerUrl": "",
+        "launchExecutable": "Moire Maker.exe",
+        "installDirName": "moire-maker",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/moire-maker",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "moire-maker-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "moire-maker-v0.1.0",
+        "remoteBaseUrl": "https://github.com/aliguzel996/moire-maker",
         "autoDiscovered": true,
         "discoverySource": "app.manifest.json"
       }
