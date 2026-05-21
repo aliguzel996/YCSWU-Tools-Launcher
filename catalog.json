@@ -15,7 +15,7 @@
       "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
     "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-    "builtAt": "2026-05-20T22:45:20.056Z"
+    "builtAt": "2026-05-21T00:18:59.562Z"
   },
   "apps": [
     {
@@ -312,8 +312,8 @@
       },
       "install": {
         "strategy": "portable",
-        "packageUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.0.1.0.exe",
-        "portableUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.0.1.0.exe",
+        "packageUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.exe",
+        "portableUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.exe",
         "installerUrl": "",
         "launchExecutable": "fibonacci-grid-maker.exe",
         "installDirName": "fibonacci-grid-maker",
@@ -337,7 +337,7 @@
       "name": "rooms",
       "headline": "Free open-source room builder for box and sphere rooms with window/glass placement, lighting preview, and image, SVG, or FBX export.",
       "description": "Kutu ve küre oda tasarlamak, pencere veya cam yüzey yerleştirmek, ışığı önizlemek ve görüntü, SVG çizgi ya da FBX sahne dosyası dışa aktarmak için ücretsiz ve açık kaynaklı oda tasarım aracı.",
-      "version": "0.1.1",
+      "version": "0.0.1",
       "channel": "stable",
       "art": {
         "monogram": "R",
@@ -351,8 +351,8 @@
       },
       "install": {
         "strategy": "portable",
-        "packageUrl": "",
-        "portableUrl": "",
+        "packageUrl": "https://github.com/aliguzel996/rooms/releases/download/v0.0.1/Rooms.Portable.exe",
+        "portableUrl": "https://github.com/aliguzel996/rooms/releases/download/v0.0.1/Rooms.Portable.exe",
         "installerUrl": "",
         "launchExecutable": "rooms.exe",
         "installDirName": "rooms",
@@ -365,8 +365,8 @@
         "releaseTagPrefix": "rooms-v",
         "assetPatterns": {},
         "localArtifacts": {},
-        "releaseTag": "rooms-v0.1.1",
-        "remoteBaseUrl": "https://github.com/aliguzel996/rooms",
+        "releaseTag": "v0.0.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/rooms/releases/tag/v0.0.1",
         "autoDiscovered": true,
         "discoverySource": "app.manifest.json"
       }
