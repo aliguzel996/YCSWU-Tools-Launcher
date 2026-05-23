@@ -409,6 +409,12 @@ button {
   line-height: 1.05;
 }
 
+.launcher-download-mobile {
+  display: none;
+  font-size: 11px;
+  line-height: 1.1;
+}
+
 .hero-brandmark {
   position: absolute;
   right: 0;
@@ -905,6 +911,14 @@ button {
     bottom: 8px;
     min-height: 30px;
     padding: 4px 8px;
+  }
+
+  .launcher-download-main {
+    display: none;
+  }
+
+  .launcher-download-mobile {
+    display: block;
   }
 
   .quick-actions-grid,
