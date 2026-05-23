@@ -82,15 +82,19 @@ button {
   align-items: center;
   gap: 10px;
   flex-wrap: nowrap;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .suite-strip h1,
 .suite-mark,
 .suite-title {
   margin: 0;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .suite-mark {
@@ -709,6 +713,7 @@ button {
     grid-template-columns: 1fr;
     height: auto;
     min-height: 0;
+    overflow: visible;
   }
 
   body {
@@ -718,6 +723,24 @@ button {
   .catalog-column,
   .detail-column {
     min-height: auto;
+  }
+
+  .catalog-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .suite-strip {
+    order: 1;
+  }
+
+  .support-panel {
+    order: 2;
+  }
+
+  .app-grid {
+    order: 3;
+    overflow: visible;
   }
 
   .detail-column {
@@ -756,12 +779,12 @@ button {
     gap: 12px;
     align-items: center;
     min-height: 0;
-    padding: 10px 10px;
+    padding: 7px 10px;
   }
 
   .suite-brand {
     gap: 6px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .detail-column {
@@ -831,7 +854,8 @@ button {
   .suite-strip h1,
   .suite-mark,
   .suite-title {
-    font-size: 13px;
+    font-size: 10px;
+    font-weight: 400;
   }
 
   .card-head {
