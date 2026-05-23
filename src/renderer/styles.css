@@ -182,36 +182,24 @@ button {
   color: #777777;
 }
 
-.icon-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: 1px solid var(--line);
-  background: #ffffff;
-  color: var(--ink);
-  border-radius: 0;
-  appearance: none;
-}
-
 .github-mark-button {
-  font-size: 11px;
+  min-height: 30px;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 12px;
   line-height: 1;
   font-weight: 400;
   text-decoration: none;
+  text-transform: lowercase;
   font-family: "Courier New", Courier, monospace;
+  appearance: none;
 }
 
 .github-mark-button:hover {
   background: #000000;
   color: #ffffff;
-}
-
-.icon-button svg {
-  width: 18px;
-  height: 18px;
 }
 
 .tool-card,
