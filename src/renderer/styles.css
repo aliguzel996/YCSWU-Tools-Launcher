@@ -169,13 +169,16 @@ button {
 }
 
 .support-button.is-dimmed {
-  opacity: 0.42;
+  opacity: 0.34;
   cursor: default;
   filter: grayscale(1);
+  background: #d9d9d9;
+  color: #777777;
+  border-color: #777777;
 }
 
 .support-button.is-dimmed:hover {
-  color: inherit;
+  color: #777777;
 }
 
 .icon-button {
@@ -188,6 +191,19 @@ button {
   border: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
+}
+
+.github-mark-button {
+  background: #ffffff;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.github-mark-button:hover {
+  background: #000000;
+  color: #ffffff;
 }
 
 .icon-button svg {
