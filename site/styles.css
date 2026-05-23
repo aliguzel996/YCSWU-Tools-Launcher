@@ -195,21 +195,16 @@ button {
 }
 
 .github-mark-button {
-  font-size: 11px;
-  line-height: 1;
+  min-height: 30px;
+  padding: 4px 10px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 12px;
   font-weight: 400;
-  text-decoration: none;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.github-mark-button:hover {
-  background: #000000;
-  color: #ffffff;
-}
-
-.icon-button svg {
-  width: 18px;
-  height: 18px;
+  line-height: 1;
+  text-transform: lowercase;
+  appearance: none;
 }
 
 .tool-card,
@@ -400,7 +395,7 @@ button {
   line-height: 1.05;
   font-weight: 400;
   text-align: left;
-  display: inline-flex;
+  display: inline-flex !important;
   align-items: center;
   gap: 0;
   white-space: nowrap;
@@ -415,7 +410,7 @@ button {
 }
 
 .launcher-mobile-note {
-  display: none;
+  display: none !important;
   position: absolute;
   left: 18px;
   bottom: 16px;
@@ -431,6 +426,16 @@ button {
   text-align: left;
   border-radius: 0;
   appearance: none;
+  opacity: 1;
+}
+
+html.is-mobile-view .launcher-download-button {
+  display: none !important;
+}
+
+html.is-mobile-view .launcher-mobile-note {
+  display: inline-flex !important;
+  align-items: center;
 }
 
 .hero-brandmark {
@@ -929,11 +934,11 @@ button {
   }
 
   .launcher-download-button {
-    display: none;
+    display: none !important;
   }
 
   .launcher-mobile-note {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     max-width: calc(100% - 16px);
     left: 8px;

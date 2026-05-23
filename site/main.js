@@ -30,6 +30,12 @@ const elements = {
   cardTemplate: document.querySelector("#app-card-template")
 };
 
+const mobileViewportQuery = window.matchMedia("(max-width: 640px)");
+
+function updateViewportMode() {
+  document.documentElement.classList.toggle("is-mobile-view", mobileViewportQuery.matches);
+}
+
 function escapeHtml(value = "") {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -596,6 +602,9 @@ async function refreshCatalogAndShowTools(message = "Registry reloaded.") {
 }
 
 async function bootstrap() {
+  updateViewportMode();
+  mobileViewportQuery.addEventListener("change", updateViewportMode);
+
   document.querySelector("#support-itch-link")?.addEventListener("click", () => {
     openExternalLink(SUPPORT_ITCH_URL, "Support page opened.");
   });
