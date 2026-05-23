@@ -1,6 +1,6 @@
 {
   "owner": "aliguzel996",
-  "syncedAt": "2026-05-23T17:18:10.096Z",
+  "syncedAt": "2026-05-23T19:38:40.011Z",
   "apps": [
     {
       "id": "fibonacci-grid-maker",
@@ -37,6 +37,45 @@
         "localArtifacts": {},
         "releaseTag": "v0.0.1",
         "remoteBaseUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "kira-kira",
+      "name": "kira kira",
+      "headline": "Photo tool for adding glitter highlights.",
+      "description": "Photo arac adding glitter highlights.",
+      "version": "0.0.1",
+      "channel": "stable",
+      "art": {
+        "monogram": "KK",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": ""
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/kira-kira/",
+        "repoUrl": "https://github.com/aliguzel996/kira-kira"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.0.1/kira-kira-portable-0.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.0.1/kira-kira-portable-0.1.0.exe",
+        "installerUrl": "",
+        "launchExecutable": "kira kira.exe",
+        "installDirName": "kira-kira",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/kira-kira",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "kira-kira-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.0.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/kira-kira/releases/tag/v0.0.1",
         "autoDiscovered": true,
         "discoverySource": "app.manifest.json"
       }
