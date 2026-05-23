@@ -4,7 +4,7 @@
     "channel": "stable",
     "manifestVersion": "1.0.0",
     "supportUrl": "https://ycswu.co/araclar/",
-    "syncedAt": "2026-05-11T20:35:06.472Z",
+    "syncedAt": "2026-05-23T19:56:58.036Z",
     "distribution": {
       "type": "github-releases",
       "owner": "aliguzel996",
@@ -15,7 +15,7 @@
       "rawManifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
     },
     "manifestUrl": "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-    "builtAt": "2026-05-23T19:38:40.056Z"
+    "builtAt": "2026-05-23T20:34:35.124Z"
   },
   "apps": [
     {
@@ -304,7 +304,7 @@
         "monogram": "FG",
         "background": "#0d0d0d",
         "foreground": "#ffffff",
-        "imagePath": ""
+        "imagePath": "./assets/fibonacci-grid-maker-logo.svg"
       },
       "links": {
         "siteUrl": "https://ycswu.co/fibonacci-grid-maker/",
@@ -333,45 +333,6 @@
       }
     },
     {
-      "id": "kira-kira",
-      "name": "kira kira",
-      "headline": "Photo tool for adding glitter highlights.",
-      "description": "Photo arac adding glitter highlights.",
-      "version": "0.0.1",
-      "channel": "stable",
-      "art": {
-        "monogram": "KK",
-        "background": "#0d0d0d",
-        "foreground": "#ffffff",
-        "imagePath": ""
-      },
-      "links": {
-        "siteUrl": "https://ycswu.co/kira-kira/",
-        "repoUrl": "https://github.com/aliguzel996/kira-kira"
-      },
-      "install": {
-        "strategy": "portable",
-        "packageUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.0.1/kira-kira-portable-0.1.0.exe",
-        "portableUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.0.1/kira-kira-portable-0.1.0.exe",
-        "installerUrl": "",
-        "launchExecutable": "kira kira.exe",
-        "installDirName": "kira-kira",
-        "discoveryPaths": []
-      },
-      "source": {
-        "repoPath": "https://github.com/aliguzel996/kira-kira",
-        "packageJsonPath": "app.manifest.json",
-        "buildCommands": {},
-        "releaseTagPrefix": "kira-kira-v",
-        "assetPatterns": {},
-        "localArtifacts": {},
-        "releaseTag": "v0.0.1",
-        "remoteBaseUrl": "https://github.com/aliguzel996/kira-kira/releases/tag/v0.0.1",
-        "autoDiscovered": true,
-        "discoverySource": "app.manifest.json"
-      }
-    },
-    {
       "id": "moire-maker",
       "name": "Moire Maker",
       "headline": "Creates moire screen-camera interference effects from images and videos.",
@@ -382,7 +343,7 @@
         "monogram": "MM",
         "background": "#0d0d0d",
         "foreground": "#ffffff",
-        "imagePath": ""
+        "imagePath": "./assets/moire-maker-logo.svg"
       },
       "links": {
         "siteUrl": "https://ycswu.co/moire-maker/",
@@ -421,7 +382,7 @@
         "monogram": "R",
         "background": "#0d0d0d",
         "foreground": "#ffffff",
-        "imagePath": ""
+        "imagePath": "./assets/rooms-logo.svg"
       },
       "links": {
         "siteUrl": "https://ycswu.co/rooms/",
@@ -445,6 +406,45 @@
         "localArtifacts": {},
         "releaseTag": "v0.0.1",
         "remoteBaseUrl": "https://github.com/aliguzel996/rooms/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "kira-kira",
+      "name": "kira kira",
+      "headline": "Minimal glitter highlight tool for photos with adjustable glow, blades, bokeh, blend modes and PNG export.",
+      "description": "Gorsellere ayarlanabilir parilti, glow, blade ve bokeh efektleri ekler; sonucu karsilastirip PNG olarak disa aktarir.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "KK",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/kira-kira-logo.svg"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/kira-kira/",
+        "repoUrl": "https://github.com/aliguzel996/kira-kira"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.1.0/kira-kira-portable-0.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.1.0/kira-kira-portable-0.1.0.exe",
+        "installerUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.1.0/kira-kira-setup-0.1.0.exe",
+        "launchExecutable": "kira-kira.exe",
+        "installDirName": "kira-kira",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/kira-kira",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "kira-kira-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.1.0",
+        "remoteBaseUrl": "https://github.com/aliguzel996/kira-kira/releases/tag/v0.1.0",
         "autoDiscovered": true,
         "discoverySource": "app.manifest.json"
       }

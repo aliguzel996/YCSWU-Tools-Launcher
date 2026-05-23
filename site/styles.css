@@ -56,7 +56,7 @@ button {
 
 .catalog-column {
   display: grid;
-  grid-template-rows: auto minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
   gap: 6px;
 }
 
@@ -69,10 +69,10 @@ button {
 .suite-strip {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  min-height: 96px;
-  padding: 18px 12px;
+  justify-content: flex-start;
+  gap: 10px;
+  min-height: 52px;
+  padding: 10px 12px;
   border: 1px solid var(--line);
   box-shadow: inset 0 -1px 0 #ffffff;
 }
@@ -80,7 +80,7 @@ button {
 .suite-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: nowrap;
 }
 
@@ -88,8 +88,9 @@ button {
 .suite-mark,
 .suite-title {
   margin: 0;
-  font-size: 26px;
+  font-size: 18px;
   line-height: 1;
+  font-weight: 400;
 }
 
 .suite-mark {
@@ -97,26 +98,95 @@ button {
 }
 
 .suite-actions {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  margin-left: auto;
-}
-
-#refresh-button {
-  min-width: 154px;
-  min-height: 52px;
-  padding: 14px 28px;
+  display: none;
 }
 
 .app-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-auto-rows: minmax(0, 1fr);
+  grid-auto-rows: minmax(88px, auto);
   gap: 6px;
   min-height: 0;
   overflow: auto;
   align-content: start;
+}
+
+.support-panel {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  padding: 10px 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.support-copy {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.42;
+  color: var(--muted);
+  max-width: 72ch;
+}
+
+.support-mail-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.support-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.support-button {
+  display: inline-grid;
+  gap: 0;
+  text-align: left;
+  min-width: 154px;
+  padding: 4px 10px 3px;
+}
+
+.support-button-main {
+  display: block;
+  font-size: 12px;
+  line-height: 1.05;
+}
+
+.support-button-sub {
+  display: block;
+  font-size: 9px;
+  line-height: 1.1;
+  text-transform: none;
+  opacity: 0.72;
+}
+
+.support-button.is-dimmed {
+  opacity: 0.42;
+  cursor: default;
+  filter: grayscale(1);
+}
+
+.support-button.is-dimmed:hover {
+  color: inherit;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
+.icon-button svg {
+  width: 18px;
+  height: 18px;
 }
 
 .tool-card,
@@ -128,11 +198,9 @@ button {
 }
 
 .tool-card {
-  display: grid;
-  grid-template-rows: auto auto auto;
-  gap: 8px;
-  height: 100%;
-  padding: 0 0 10px;
+  display: block;
+  min-height: 88px;
+  padding: 0;
   transition:
     background-color 120ms ease,
     color 120ms ease,
@@ -148,8 +216,8 @@ button {
 
 .card-head {
   display: grid;
-  grid-template-columns: 88px 1fr;
-  min-height: 92px;
+  grid-template-columns: 88px minmax(0, 1fr);
+  min-height: 88px;
 }
 
 .art-badge {
@@ -178,14 +246,19 @@ button {
 
 .head-copy {
   border-left: 1px solid var(--line);
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
 }
 
 .card-title-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 6px;
-  padding: 7px 8px 6px;
+  width: 100%;
+  min-height: 100%;
+  padding: 8px 12px;
   background: #000000;
   color: #ffffff;
 }
@@ -198,15 +271,9 @@ button {
 
 .card-title {
   margin: 0;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1;
-}
-
-.card-flags {
-  display: flex;
-  justify-content: flex-end;
-  gap: 4px;
-  flex-wrap: wrap;
+  font-weight: 400;
 }
 
 .status-pill,
@@ -257,31 +324,6 @@ button {
   background: var(--idle);
 }
 
-.card-headline,
-.card-description {
-  padding-left: 14px;
-  padding-right: 14px;
-}
-
-.card-headline {
-  margin: 8px 0 0;
-  line-height: 1.18;
-}
-
-.card-description {
-  margin: 0;
-  line-height: 1.22;
-  font-size: 14px;
-}
-
-.card-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5px;
-  padding: 0 14px;
-  align-self: end;
-}
-
 .small-button {
   border: 1px solid var(--line);
   min-height: 28px;
@@ -318,6 +360,33 @@ button {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.2)),
     #dcdcdc;
+}
+
+.launcher-download-button {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  z-index: 3;
+  min-width: 208px;
+  min-height: 34px;
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
+  font-size: 11px;
+  line-height: 1.05;
+  font-weight: 400;
+  text-align: left;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.launcher-download-main {
+  display: block;
+  font-size: 12px;
+  line-height: 1.05;
 }
 
 .hero-brandmark {
@@ -638,50 +707,189 @@ button {
 @media (max-width: 1320px) {
   .shell {
     grid-template-columns: 1fr;
-    height: calc(100dvh - 20px);
+    height: auto;
+    min-height: 0;
+  }
+
+  body {
+    overflow: auto;
+  }
+
+  .catalog-column,
+  .detail-column {
+    min-height: auto;
+  }
+
+  .detail-column {
+    grid-template-rows: auto auto auto;
+  }
+
+  .hero-panel {
+    min-height: 210px;
+  }
+
+  .detail-panel {
+    min-height: 320px;
+  }
+
+  .activity-panel {
+    min-height: 180px;
   }
 }
 
 @media (max-width: 900px) {
   .shell {
-    height: calc(100dvh - 16px);
-    min-height: calc(100dvh - 16px);
+    height: auto;
+    min-height: 0;
     margin: 8px;
   }
 
-  .app-grid,
   .inverter-preview-grid {
     grid-template-columns: 1fr;
   }
 
-  .suite-strip {
-    gap: 12px;
-    flex-direction: column;
-    align-items: flex-start;
-    min-height: 0;
-    padding: 14px 12px;
+  .app-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .suite-actions {
-    width: 100%;
-    justify-content: flex-end;
+  .suite-strip {
+    gap: 12px;
+    align-items: center;
+    min-height: 0;
+    padding: 10px 10px;
+  }
+
+  .suite-brand {
+    gap: 6px;
+    flex-wrap: wrap;
   }
 
   .detail-column {
-    grid-template-rows: minmax(160px, 24vh) minmax(0, 1fr) minmax(110px, 20vh);
+    grid-template-rows: auto auto auto;
+  }
+
+  .hero-panel {
+    min-height: 200px;
+    padding: 10px;
   }
 
   .hero-brandmark {
-    width: min(360px, 94%);
-    height: calc(100% - 10px);
+    width: min(360px, 96%);
+    height: calc(100% - 4px);
   }
 
-  .hero-wordmark-link {
-    width: 94%;
-    height: 76px;
+  .support-panel {
+    padding: 9px 10px;
+  }
+
+  .support-copy {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .support-button {
+    min-width: 142px;
+  }
+
+  .launcher-download-button {
+    left: 10px;
+    bottom: 10px;
+    min-width: 188px;
+    min-height: 32px;
+    padding: 4px 9px;
+  }
+
+  .launcher-download-main {
+    font-size: 12px;
+  }
+
+  .detail-panel {
+    min-height: 300px;
+  }
+
+  .activity-panel {
+    min-height: 160px;
   }
 
   .release-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    margin: 6px;
+    gap: 6px;
+  }
+
+  .suite-strip h1,
+  .suite-mark,
+  .suite-title {
+    font-size: 13px;
+  }
+
+  .card-head {
+    grid-template-columns: 68px minmax(0, 1fr);
+    min-height: 68px;
+  }
+
+  .art-badge {
+    width: 44px;
+    height: 44px;
+    margin: 12px;
+    font-size: 24px;
+  }
+
+  .card-title {
+    font-size: 13px;
+  }
+
+  .hero-panel {
+    min-height: 176px;
+  }
+
+  .hero-brandmark {
+    width: 100%;
+  }
+
+  .launcher-download-button {
+    min-width: 164px;
+    max-width: calc(100% - 20px);
+    left: 8px;
+    bottom: 8px;
+    min-height: 30px;
+    padding: 4px 8px;
+  }
+
+  .quick-actions-grid,
+  .support-actions {
+    gap: 5px;
+  }
+
+  .support-copy {
+    font-size: 10px;
+    line-height: 1.36;
+  }
+
+  .support-button {
+    min-width: 132px;
+  }
+
+  .support-button-main {
+    font-size: 11px;
+  }
+
+  .support-button-sub {
+    font-size: 8px;
+  }
+
+  .detail-panel {
+    min-height: 260px;
   }
 }

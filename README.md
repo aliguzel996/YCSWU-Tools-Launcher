@@ -1,6 +1,6 @@
 # YCSWU Tools Launcher
 
-YCSWU Tools Launcher is a free open-source desktop launcher for the YCSWU creative tool set. It keeps multiple tools in one raw utility panel, checks release state, routes install and update actions, and leaves space for small built-in helper modules like the image router and release map.
+YCSWU Tools Launcher is a free open-source desktop launcher for the YCSWU creative tool set. It keeps multiple tools in one raw utility panel, checks release state, routes install and update actions, and leaves space for small built-in helper modules like the image inverter, release map, and quick actions panel.
 
 Repository: [aliguzel996/YCSWU-Tools-Launcher](https://github.com/aliguzel996/YCSWU-Tools-Launcher)  
 Publisher: YCSWU  
@@ -13,7 +13,7 @@ Creator: Ali Guzel
 - Checks install state and release state
 - Supports portable and installer-based distribution
 - Shows release status in a compact tool garage layout
-- Includes launcher-side helper panels such as image router, release map, quick actions, and activity log
+- Includes launcher-side helper panels such as image inverter, release map, quick actions, and activity log
 
 ## Current Tool Set
 
@@ -23,6 +23,10 @@ Creator: Ali Guzel
 - giffer
 - hot vs nice
 - 2d-to-3d
+- fibonacci-grid-maker
+- moire maker
+- rooms
+- kira kira
 
 ## Project Structure
 
@@ -47,8 +51,8 @@ This launcher is designed to work with GitHub Releases and a machine-readable ca
 The repository now also includes a static website layer in `site/`.
 
 - The website page reads the same `catalog.json` used by the launcher
-- The website tries the GitHub-backed manifest first, then falls back to the bundled local catalog
-- The launcher tries the GitHub-backed manifest first, then falls back to the bundled local catalog
+- The website tries the bundled local catalog first, then falls back to the GitHub-backed manifest
+- The launcher tries the bundled local catalog first, then falls back to the GitHub-backed manifest
 - If GitHub Releases and `catalog.json` are updated, both the website and installed launcher can see the new versions
 
 For a cPanel upload bundle:

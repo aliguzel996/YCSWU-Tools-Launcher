@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,16 +15,33 @@
             <h1 class="suite-mark">YCSWU TOOLS</h1>
             <h1 class="suite-title">apps + updates</h1>
           </div>
-          <div class="suite-actions">
-            <button id="refresh-button" class="small-button" type="button">refresh</button>
-          </div>
         </header>
 
         <div id="app-grid" class="app-grid"></div>
+
+        <section class="support-panel">
+          <p class="support-copy">
+            &copy; Ali Guzel // YCSWU. Enjoy these tools. If you would like to support the work, you can download the setup files from itch and use them on your computer. For desktop and web app ideas, commissions, or collaborations, <a class="support-mail-link" href="mailto:hiycswu@gmail.com">contact via e-mail</a>.
+          </p>
+          <div class="support-actions">
+            <button id="support-itch-link" class="small-button ghost support-button is-dimmed" type="button" disabled aria-disabled="true">
+              <span class="support-button-main">ycswu.itch.io</span>
+              <span class="support-button-sub">support &amp; setup files</span>
+            </button>
+            <button id="support-github-link" class="icon-button" type="button" aria-label="Open GitHub profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.09.68-.22.68-.49 0-.24-.01-1.05-.01-1.91-2.78.62-3.37-1.21-3.37-1.21-.45-1.18-1.11-1.49-1.11-1.49-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.15-4.56-5.12 0-1.13.39-2.05 1.03-2.77-.1-.26-.45-1.32.1-2.76 0 0 .84-.28 2.75 1.06A9.3 9.3 0 0 1 12 6.97c.85 0 1.7.12 2.49.37 1.9-1.34 2.74-1.06 2.74-1.06.56 1.44.21 2.5.11 2.76.64.72 1.03 1.64 1.03 2.77 0 3.98-2.34 4.85-4.57 5.11.36.32.68.95.68 1.92 0 1.39-.01 2.5-.01 2.85 0 .27.18.59.69.49A10.24 10.24 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" fill="currentColor"/>
+              </svg>
+            </button>
+          </div>
+        </section>
       </section>
 
       <aside class="detail-column">
         <section class="hero-panel">
+          <button class="hero-external-link" id="hero-external-link" type="button" aria-label="Open ycswu.co">
+            &#8599;
+          </button>
           <div class="hero-brandmark" aria-hidden="true">
             <button class="hero-logo-link" id="hero-site-link" type="button" aria-label="Open ycswu.co">
               <img class="hero-logo" src="./assets/favicon.svg" alt="" />
@@ -51,16 +68,9 @@
           <div class="head-copy">
             <div class="card-title-row">
               <h2 class="card-title"></h2>
-              <div class="card-flags">
-                <span class="version-pill"></span>
-                <span class="status-pill"></span>
-              </div>
             </div>
-            <p class="card-headline"></p>
           </div>
         </div>
-        <p class="card-description"></p>
-        <div class="card-actions"></div>
       </article>
     </template>
 

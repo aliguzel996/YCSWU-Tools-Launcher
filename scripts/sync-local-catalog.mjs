@@ -1,14 +1,14 @@
 import fs from "node:fs";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { buildReleaseTagPrefix, resolveGithubDistribution } from "./lib/release-config.mjs";
+import { buildReleaseTagPrefix, loadReleaseContext, resolveGithubDistribution } from "./lib/release-config.mjs";
 
 const workspaceRoot = process.cwd();
 const sourceConfigPath = path.join(workspaceRoot, "config", "release-sources.json");
 const localCatalogPath = path.join(workspaceRoot, "config", "catalog.local.json");
 
 const sourceConfig = JSON.parse(fs.readFileSync(sourceConfigPath, "utf8"));
-const catalog = JSON.parse(fs.readFileSync(localCatalogPath, "utf8"));
+const { localCatalog: catalog, discoveredTools } = loadReleaseContext(workspaceRoot);
 const distribution = resolveGithubDistribution(sourceConfig);
 
 function readJson(filePath) {
@@ -45,6 +45,42 @@ function toRelativeIfExists(candidatePath) {
   }
 
   return candidatePath;
+}
+
+function normalizeToolKey(value = "") {
+  return String(value).trim().toLowerCase();
+}
+
+function dedupeApps(apps) {
+  const seenIds = new Set();
+  const seenNames = new Set();
+  const seenRepoUrls = new Set();
+  const result = [];
+
+  for (const appEntry of apps) {
+    const normalizedId = normalizeToolKey(appEntry.id);
+    const normalizedName = normalizeToolKey(appEntry.name);
+    const normalizedRepoUrl = normalizeToolKey(appEntry.links?.repoUrl || "");
+
+    if (
+      seenIds.has(normalizedId) ||
+      seenNames.has(normalizedName) ||
+      (normalizedRepoUrl && seenRepoUrls.has(normalizedRepoUrl))
+    ) {
+      continue;
+    }
+
+    seenIds.add(normalizedId);
+    seenNames.add(normalizedName);
+
+    if (normalizedRepoUrl) {
+      seenRepoUrls.add(normalizedRepoUrl);
+    }
+
+    result.push(appEntry);
+  }
+
+  return result;
 }
 
 const nextApps = catalog.apps.map((appEntry) => {
@@ -112,7 +148,7 @@ const nextCatalog = {
     ...catalog.suite,
     syncedAt: new Date().toISOString()
   },
-  apps: nextApps
+  apps: dedupeApps([...nextApps, ...((discoveredTools && discoveredTools.apps) || [])])
 };
 
 fs.writeFileSync(localCatalogPath, `${JSON.stringify(nextCatalog, null, 2)}\n`, "utf8");

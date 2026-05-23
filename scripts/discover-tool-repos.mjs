@@ -12,6 +12,12 @@ const {
 const distribution = resolveGithubDistribution(releaseSources);
 const owner = process.env.YCSWU_TOOL_OWNER || distribution.owner;
 const manifestCandidates = ["app.manifest.json", "metadata/manifest/tool.manifest.json"];
+const knownLogoPaths = {
+  "fibonacci-grid-maker": "./assets/fibonacci-grid-maker-logo.svg",
+  "moire-maker": "./assets/moire-maker-logo.svg",
+  rooms: "./assets/rooms-logo.svg",
+  "kira-kira": "./assets/kira-kira-logo.svg"
+};
 
 if (!githubToken) {
   throw new Error("GITHUB_TOKEN veya YCSWU_GITHUB_TOKEN tanimli degil.");
@@ -108,6 +114,35 @@ function createMonogram(name = "YT") {
 
 function normalizeToolKey(value = "") {
   return String(value).trim().toLowerCase();
+}
+
+function normalizeManifestImagePath(repo, manifest) {
+  const knownLogoPath = knownLogoPaths[manifest.id || repo.name];
+
+  if (knownLogoPath) {
+    return knownLogoPath;
+  }
+
+  const candidate =
+    manifest.art?.imagePath ||
+    manifest.iconUrl ||
+    manifest.icons?.png ||
+    manifest.icons?.svg ||
+    manifest.logo ||
+    "";
+  const imagePath = String(candidate).trim();
+
+  if (!imagePath) {
+    return "";
+  }
+
+  if (/^(https?:)?\/\//i.test(imagePath) || imagePath.startsWith("data:") || imagePath.startsWith("./")) {
+    return imagePath;
+  }
+
+  const branch = repo.default_branch || "main";
+  const cleanPath = imagePath.replace(/^\/+/, "");
+  return `https://raw.githubusercontent.com/${owner}/${repo.name}/${branch}/${cleanPath}`;
 }
 
 function translateEnglishDescriptionToTurkish(text = "") {
@@ -300,10 +335,10 @@ function normalizeDiscoveredTool(repo, manifest, manifestPath, release) {
     version,
     channel: release?.prerelease ? "beta" : "stable",
     art: {
-      monogram: createMonogram(manifest.name || repo.name),
-      background: "#0d0d0d",
-      foreground: "#ffffff",
-      imagePath: ""
+      monogram: manifest.art?.monogram || createMonogram(manifest.name || repo.name),
+      background: manifest.art?.background || "#0d0d0d",
+      foreground: manifest.art?.foreground || "#ffffff",
+      imagePath: normalizeManifestImagePath(repo, manifest)
     },
     links: {
       siteUrl: manifest.website || `https://ycswu.co/${id}/`,

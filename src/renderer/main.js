@@ -11,13 +11,15 @@ const state = {
   ]
 };
 
+const SUPPORT_ITCH_URL = "https://ycswu.itch.io/";
+const SUPPORT_GITHUB_URL = "https://github.com/aliguzel996";
+
 const elements = {
   shell: document.querySelector(".shell"),
   catalogColumn: document.querySelector(".catalog-column"),
   appGrid: document.querySelector("#app-grid"),
   detailPanel: document.querySelector("#detail-panel"),
   activityLog: document.querySelector("#activity-log"),
-  refreshButton: document.querySelector("#refresh-button"),
   cardTemplate: document.querySelector("#app-card-template")
 };
 
@@ -64,6 +66,18 @@ function getStatusTone(status) {
   }
 }
 
+function getVisibleStatusLabel(appEntry) {
+  if (!appEntry?.state) {
+    return "";
+  }
+
+  if (appEntry.state.status === "not-installed") {
+    return "";
+  }
+
+  return appEntry.state.label || "";
+}
+
 function getSelectedApp() {
   return state.catalog?.apps.find((item) => item.id === state.selectedAppId) || null;
 }
@@ -72,24 +86,6 @@ function openInfo(appId) {
   state.selectedAppId = appId;
   renderDetail();
   highlightSelection();
-}
-
-function renderCardActions(appEntry) {
-  const buttons = [];
-
-  if (appEntry.availableActions.github) {
-    buttons.push(
-      `<button class="small-button ghost" data-open-github="${escapeHtml(appEntry.githubUrl)}" type="button">github</button>`
-    );
-  }
-
-  if (appEntry.links?.siteUrl) {
-    buttons.push(
-      `<button class="small-button ghost" data-open-web="${escapeHtml(appEntry.links.siteUrl)}" type="button">try on web</button>`
-    );
-  }
-
-  return buttons.join("");
 }
 
 function renderGrid() {
@@ -105,11 +101,6 @@ function renderGrid() {
 
     const art = node.querySelector(".art-badge");
     const title = node.querySelector(".card-title");
-    const versionPill = node.querySelector(".version-pill");
-    const statusPill = node.querySelector(".status-pill");
-    const headline = node.querySelector(".card-headline");
-    const description = node.querySelector(".card-description");
-    const actions = node.querySelector(".card-actions");
 
     art.style.background = appEntry.art.background;
     art.style.color = appEntry.art.foreground;
@@ -128,33 +119,12 @@ function renderGrid() {
     }
 
     title.textContent = appEntry.name;
-    versionPill.textContent = `v${appEntry.latestVersion}`;
-    statusPill.textContent = appEntry.state.label;
-    statusPill.classList.add(getStatusTone(appEntry.state.status));
-    headline.textContent = appEntry.headline;
-    description.textContent = appEntry.description;
-    actions.innerHTML = renderCardActions(appEntry);
 
     if (state.selectedAppId === appEntry.id) {
       node.classList.add("is-selected");
     }
 
-    node.addEventListener("click", async (event) => {
-      const githubButton = event.target.closest("[data-open-github]");
-      const webButton = event.target.closest("[data-open-web]");
-
-      if (githubButton) {
-        event.stopPropagation();
-        await openExternalLink(githubButton.dataset.openGithub, "GitHub link opened.");
-        return;
-      }
-
-      if (webButton) {
-        event.stopPropagation();
-        await openExternalLink(webButton.dataset.openWeb, "Web tool page opened.");
-        return;
-      }
-
+    node.addEventListener("click", async () => {
       state.selectedAppId = appEntry.id;
       renderDetail();
       highlightSelection();
@@ -331,7 +301,11 @@ function renderSelectedApp(appEntry) {
       <div class="detail-block">
         <div class="detail-label">status</div>
         <div class="detail-value detail-status-row">
-          <span class="status-pill ${getStatusTone(appEntry.state.status)}">${escapeHtml(appEntry.state.label)}</span>
+          ${
+            getVisibleStatusLabel(appEntry)
+              ? `<span class="status-pill ${getStatusTone(appEntry.state.status)}">${escapeHtml(getVisibleStatusLabel(appEntry))}</span>`
+              : ""
+          }
           <span class="version-pill detail-version-pill">latest v${escapeHtml(appEntry.latestVersion)}</span>
           <span class="version-pill detail-version-pill">local ${escapeHtml(appEntry.localVersion || "none")}</span>
         </div>
@@ -649,11 +623,23 @@ async function addInverterFiles(fileList) {
 }
 
 async function bootstrap() {
+  document.querySelector("#support-itch-link")?.addEventListener("click", async () => {
+    await openExternalLink(SUPPORT_ITCH_URL, "Support page opened.");
+  });
+
+  document.querySelector("#support-github-link")?.addEventListener("click", async () => {
+    await openExternalLink(SUPPORT_GITHUB_URL, "GitHub profile opened.");
+  });
+
   document.querySelector("#hero-site-link")?.addEventListener("click", async () => {
     await openExternalLink("https://ycswu.co/", "ycswu.co opened.");
   });
 
   document.querySelector("#hero-wordmark-link")?.addEventListener("click", async () => {
+    await openExternalLink("https://ycswu.co/", "ycswu.co opened.");
+  });
+
+  document.querySelector("#hero-external-link")?.addEventListener("click", async () => {
     await openExternalLink("https://ycswu.co/", "ycswu.co opened.");
   });
 
@@ -667,10 +653,6 @@ async function bootstrap() {
 
   document.querySelector(".hero-panel")?.addEventListener("click", () => {
     clearSelection();
-  });
-
-  elements.refreshButton.addEventListener("click", async () => {
-    await refreshCatalogAndShowTools("Release check completed.");
   });
 
   try {

@@ -1,7 +1,13 @@
 const MANIFEST_CANDIDATES = [
-  "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json",
-  "./catalog.json"
+  "./catalog.json",
+  "https://raw.githubusercontent.com/aliguzel996/YCSWU-Tools-Launcher/main/catalog.json"
 ];
+
+const SUPPORT_ITCH_URL = "https://ycswu.itch.io/";
+const SUPPORT_GITHUB_URL = "https://github.com/aliguzel996";
+const LAUNCHER_REPO_URL = "https://github.com/aliguzel996/YCSWU-Tools-Launcher";
+const LAUNCHER_DOWNLOAD_URL =
+  "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/latest/download/YCSWU%20Tools%20Setup%200.1.0.exe";
 
 const state = {
   catalog: null,
@@ -21,7 +27,6 @@ const elements = {
   appGrid: document.querySelector("#app-grid"),
   detailPanel: document.querySelector("#detail-panel"),
   activityLog: document.querySelector("#activity-log"),
-  refreshButton: document.querySelector("#refresh-button"),
   cardTemplate: document.querySelector("#app-card-template")
 };
 
@@ -65,10 +70,16 @@ function openExternalLink(url, message) {
 
 function fetchCatalogStatus(appEntry) {
   if (appEntry.install?.packageUrl || appEntry.install?.portableUrl || appEntry.install?.installerUrl) {
-    return { status: "ready", label: "READY TO INSTALL" };
+    return { status: "ready", label: "" };
   }
 
   return { status: "unknown", label: "UNKNOWN" };
+}
+
+function startLauncherDownload() {
+  window.open(LAUNCHER_REPO_URL, "_blank", "noopener,noreferrer");
+  window.location.href = LAUNCHER_DOWNLOAD_URL;
+  pushActivity("Desktop app launcher download started.", "success");
 }
 
 function getStatusTone(status) {
@@ -87,6 +98,10 @@ function getStatusTone(status) {
     default:
       return "status-unknown";
   }
+}
+
+function getVisibleStatusLabel(appEntry) {
+  return appEntry?.state?.label || "";
 }
 
 async function fetchCatalog() {
@@ -145,24 +160,6 @@ function enrichCatalog(catalog, source) {
   };
 }
 
-function renderCardActions(appEntry) {
-  const buttons = [];
-
-  if (appEntry.availableActions.github) {
-    buttons.push(
-      `<button class="small-button ghost" data-open-github="${escapeHtml(appEntry.links.repoUrl)}" type="button">github</button>`
-    );
-  }
-
-  if (appEntry.availableActions.site) {
-    buttons.push(
-      `<button class="small-button ghost" data-open-web="${escapeHtml(appEntry.links.siteUrl)}" type="button">try on web</button>`
-    );
-  }
-
-  return buttons.join("");
-}
-
 function renderGrid() {
   elements.appGrid.innerHTML = "";
 
@@ -176,11 +173,6 @@ function renderGrid() {
 
     const art = node.querySelector(".art-badge");
     const title = node.querySelector(".card-title");
-    const versionPill = node.querySelector(".version-pill");
-    const statusPill = node.querySelector(".status-pill");
-    const headline = node.querySelector(".card-headline");
-    const description = node.querySelector(".card-description");
-    const actions = node.querySelector(".card-actions");
 
     art.style.background = appEntry.art.background;
     art.style.color = appEntry.art.foreground;
@@ -199,33 +191,12 @@ function renderGrid() {
     }
 
     title.textContent = appEntry.name;
-    versionPill.textContent = `v${appEntry.latestVersion}`;
-    statusPill.textContent = appEntry.state.label;
-    statusPill.classList.add(getStatusTone(appEntry.state.status));
-    headline.textContent = appEntry.headline;
-    description.textContent = appEntry.description;
-    actions.innerHTML = renderCardActions(appEntry);
 
     if (state.selectedAppId === appEntry.id) {
       node.classList.add("is-selected");
     }
 
     node.addEventListener("click", (event) => {
-      const githubButton = event.target.closest("[data-open-github]");
-      const webButton = event.target.closest("[data-open-web]");
-
-      if (githubButton) {
-        event.stopPropagation();
-        openExternalLink(githubButton.dataset.openGithub, "GitHub link opened.");
-        return;
-      }
-
-      if (webButton) {
-        event.stopPropagation();
-        openExternalLink(webButton.dataset.openWeb, "Web tool page opened.");
-        return;
-      }
-
       state.selectedAppId = appEntry.id;
       renderDetail();
       highlightSelection();
@@ -373,7 +344,11 @@ function renderSelectedApp(appEntry) {
       <div class="detail-block">
         <div class="detail-label">status</div>
         <div class="detail-value detail-status-row">
-          <span class="status-pill ${getStatusTone(appEntry.state.status)}">${escapeHtml(appEntry.state.label)}</span>
+          ${
+            getVisibleStatusLabel(appEntry)
+              ? `<span class="status-pill ${getStatusTone(appEntry.state.status)}">${escapeHtml(getVisibleStatusLabel(appEntry))}</span>`
+              : ""
+          }
           <span class="version-pill detail-version-pill">latest v${escapeHtml(appEntry.latestVersion)}</span>
           <span class="version-pill detail-version-pill">local web</span>
         </div>
@@ -621,12 +596,24 @@ async function refreshCatalogAndShowTools(message = "Registry reloaded.") {
 }
 
 async function bootstrap() {
+  document.querySelector("#support-itch-link")?.addEventListener("click", () => {
+    openExternalLink(SUPPORT_ITCH_URL, "Support page opened.");
+  });
+
+  document.querySelector("#support-github-link")?.addEventListener("click", () => {
+    openExternalLink(SUPPORT_GITHUB_URL, "GitHub profile opened.");
+  });
+
   document.querySelector("#hero-site-link")?.addEventListener("click", () => {
     openExternalLink("https://ycswu.co/", "ycswu.co opened.");
   });
 
   document.querySelector("#hero-wordmark-link")?.addEventListener("click", () => {
     openExternalLink("https://ycswu.co/", "ycswu.co opened.");
+  });
+
+  document.querySelector("#launcher-download-button")?.addEventListener("click", () => {
+    startLauncherDownload();
   });
 
   elements.catalogColumn.addEventListener("click", (event) => {
@@ -639,10 +626,6 @@ async function bootstrap() {
 
   document.querySelector(".hero-panel")?.addEventListener("click", () => {
     clearSelection();
-  });
-
-  elements.refreshButton.addEventListener("click", async () => {
-    await refreshCatalogAndShowTools("Release check completed.");
   });
 
   try {

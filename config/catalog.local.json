@@ -4,7 +4,7 @@
     "channel": "stable",
     "manifestVersion": "1.0.0",
     "supportUrl": "https://ycswu.co/araclar/",
-    "syncedAt": "2026-05-11T20:35:06.472Z",
+    "syncedAt": "2026-05-23T19:56:58.036Z",
     "distribution": {
       "type": "github-releases",
       "owner": "aliguzel996",
@@ -277,6 +277,162 @@
           "installer": "C:\\Users\\guzel\\Documents\\Codex\\2026-04-29\\vector-text-extruder-yap-caz-yani\\2D to 3D\\itch build\\2d-to-3d-setup-0.1.0.exe",
           "latestYml": ""
         }
+      }
+    },
+    {
+      "id": "fibonacci-grid-maker",
+      "name": "fibonacci-grid-maker",
+      "headline": "Free open-source creative tool for building Fibonacci-based grid layouts without manual ratio setup.",
+      "description": "building Fibonacci-based grid layouts icin ucretsiz ve acik kaynakli yaratici arac; manual ratio setup. olmadan calisir.",
+      "version": "0.0.1",
+      "channel": "stable",
+      "art": {
+        "monogram": "FG",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/fibonacci-grid-maker-logo.svg"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/fibonacci-grid-maker/",
+        "repoUrl": "https://github.com/aliguzel996/fibonacci-grid-maker"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.exe",
+        "portableUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/download/v0.0.1/Fibonacci.Grid.Maker.exe",
+        "installerUrl": "",
+        "launchExecutable": "fibonacci-grid-maker.exe",
+        "installDirName": "fibonacci-grid-maker",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/fibonacci-grid-maker",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "fibonacci-grid-maker-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.0.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/fibonacci-grid-maker/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "moire-maker",
+      "name": "Moire Maker",
+      "headline": "Creates moire screen-camera interference effects from images and videos.",
+      "description": "Creates moire screen-camera interference effects from images and videos.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "MM",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/moire-maker-logo.svg"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/moire-maker/",
+        "repoUrl": "https://github.com/aliguzel996/moire-maker"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "",
+        "portableUrl": "",
+        "installerUrl": "",
+        "launchExecutable": "Moire Maker.exe",
+        "installDirName": "moire-maker",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/moire-maker",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "moire-maker-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "moire-maker-v0.1.0",
+        "remoteBaseUrl": "https://github.com/aliguzel996/moire-maker",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "rooms",
+      "name": "rooms",
+      "headline": "Free open-source room builder for box and sphere rooms with window/glass placement, lighting preview, and image, SVG, or FBX export.",
+      "description": "Kutu ve küre oda tasarlamak, pencere veya cam yüzey yerleştirmek, ışığı önizlemek ve görüntü, SVG çizgi ya da FBX sahne dosyası dışa aktarmak için ücretsiz ve açık kaynaklı oda tasarım aracı.",
+      "version": "0.0.1",
+      "channel": "stable",
+      "art": {
+        "monogram": "R",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/rooms-logo.svg"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/rooms/",
+        "repoUrl": "https://github.com/aliguzel996/rooms"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/aliguzel996/rooms/releases/download/v0.0.1/Rooms.Portable.exe",
+        "portableUrl": "https://github.com/aliguzel996/rooms/releases/download/v0.0.1/Rooms.Portable.exe",
+        "installerUrl": "",
+        "launchExecutable": "rooms.exe",
+        "installDirName": "rooms",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/rooms",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "rooms-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.0.1",
+        "remoteBaseUrl": "https://github.com/aliguzel996/rooms/releases/tag/v0.0.1",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
+      }
+    },
+    {
+      "id": "kira-kira",
+      "name": "kira kira",
+      "headline": "Minimal glitter highlight tool for photos with adjustable glow, blades, bokeh, blend modes and PNG export.",
+      "description": "Gorsellere ayarlanabilir parilti, glow, blade ve bokeh efektleri ekler; sonucu karsilastirip PNG olarak disa aktarir.",
+      "version": "0.1.0",
+      "channel": "stable",
+      "art": {
+        "monogram": "KK",
+        "background": "#0d0d0d",
+        "foreground": "#ffffff",
+        "imagePath": "./assets/kira-kira-logo.svg"
+      },
+      "links": {
+        "siteUrl": "https://ycswu.co/kira-kira/",
+        "repoUrl": "https://github.com/aliguzel996/kira-kira"
+      },
+      "install": {
+        "strategy": "portable",
+        "packageUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.1.0/kira-kira-portable-0.1.0.exe",
+        "portableUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.1.0/kira-kira-portable-0.1.0.exe",
+        "installerUrl": "https://github.com/aliguzel996/kira-kira/releases/download/v0.1.0/kira-kira-setup-0.1.0.exe",
+        "launchExecutable": "kira-kira.exe",
+        "installDirName": "kira-kira",
+        "discoveryPaths": []
+      },
+      "source": {
+        "repoPath": "https://github.com/aliguzel996/kira-kira",
+        "packageJsonPath": "app.manifest.json",
+        "buildCommands": {},
+        "releaseTagPrefix": "kira-kira-v",
+        "assetPatterns": {},
+        "localArtifacts": {},
+        "releaseTag": "v0.1.0",
+        "remoteBaseUrl": "https://github.com/aliguzel996/kira-kira/releases/tag/v0.1.0",
+        "autoDiscovered": true,
+        "discoverySource": "app.manifest.json"
       }
     }
   ]

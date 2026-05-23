@@ -217,7 +217,7 @@ class CatalogStore {
     const bundledManifest = readJson(runtime.manifestCandidates.at(-1), null);
     const bundledRemoteUrl =
       bundledManifest?.suite?.manifestUrl || bundledManifest?.suite?.distribution?.rawManifestUrl || "";
-    const manifestCandidates = [...runtime.manifestCandidates.slice(0, -1), bundledRemoteUrl, runtime.manifestCandidates.at(-1)]
+    const manifestCandidates = [...runtime.manifestCandidates.slice(0, -1), runtime.manifestCandidates.at(-1), bundledRemoteUrl]
       .filter(Boolean)
       .filter((candidate, index, array) => array.indexOf(candidate) === index);
 
