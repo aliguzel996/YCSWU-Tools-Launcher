@@ -409,33 +409,8 @@ button {
   line-height: 1.05;
 }
 
-.launcher-mobile-note {
-  display: none !important;
-  position: absolute;
-  left: 18px;
-  bottom: 16px;
-  z-index: 3;
-  min-height: 32px;
-  padding: 4px 10px;
-  border: 1px solid var(--line);
-  background: #ffffff;
-  color: var(--ink);
-  font-size: 11px;
-  line-height: 1.1;
-  font-weight: 400;
-  text-align: left;
-  border-radius: 0;
-  appearance: none;
-  opacity: 1;
-}
-
 html.is-mobile-view .launcher-download-button {
   display: none !important;
-}
-
-html.is-mobile-view .launcher-mobile-note {
-  display: inline-flex !important;
-  align-items: center;
 }
 
 .hero-brandmark {
@@ -868,10 +843,6 @@ html.is-mobile-view .launcher-mobile-note {
     padding: 4px 9px;
   }
 
-  .launcher-mobile-note {
-    left: 10px;
-    bottom: 10px;
-  }
 
   .launcher-download-main {
     font-size: 12px;
@@ -935,16 +906,6 @@ html.is-mobile-view .launcher-mobile-note {
 
   .launcher-download-button {
     display: none !important;
-  }
-
-  .launcher-mobile-note {
-    display: inline-flex !important;
-    align-items: center;
-    max-width: calc(100% - 16px);
-    left: 8px;
-    bottom: 8px;
-    min-height: 30px;
-    padding: 4px 8px;
   }
 
   .quick-actions-grid,
