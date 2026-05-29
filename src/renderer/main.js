@@ -13,6 +13,7 @@ const state = {
 
 const SUPPORT_ITCH_URL = "https://ycswu.itch.io/";
 const SUPPORT_GITHUB_URL = "https://github.com/aliguzel996";
+const SUPPORT_MAIL_URL = "mailto:hiycswu@gmail.com";
 
 const elements = {
   shell: document.querySelector(".shell"),
@@ -629,6 +630,11 @@ async function bootstrap() {
 
   document.querySelector("#support-github-link")?.addEventListener("click", async () => {
     await openExternalLink(SUPPORT_GITHUB_URL, "GitHub profile opened.");
+  });
+
+  document.querySelector(".support-mail-link")?.addEventListener("click", async (event) => {
+    event.preventDefault();
+    await openExternalLink(SUPPORT_MAIL_URL, "Mail composer opened.");
   });
 
   document.querySelector("#hero-site-link")?.addEventListener("click", async () => {

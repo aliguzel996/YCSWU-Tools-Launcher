@@ -5,9 +5,8 @@ const MANIFEST_CANDIDATES = [
 
 const SUPPORT_ITCH_URL = "https://ycswu.itch.io/";
 const SUPPORT_GITHUB_URL = "https://github.com/aliguzel996";
-const LAUNCHER_REPO_URL = "https://github.com/aliguzel996/YCSWU-Tools-Launcher";
-const LAUNCHER_DOWNLOAD_URL =
-  "https://github.com/aliguzel996/YCSWU-Tools-Launcher/releases/latest/download/YCSWU%20Tools%20Setup%200.1.0.exe";
+const SUPPORT_MAIL_URL = "mailto:hiycswu@gmail.com";
+const LAUNCHER_DOWNLOAD_URL = "https://ycswu.itch.io/ycswu-desktop-launcher";
 
 const state = {
   catalog: null,
@@ -83,9 +82,8 @@ function fetchCatalogStatus(appEntry) {
 }
 
 function startLauncherDownload() {
-  window.open(LAUNCHER_REPO_URL, "_blank", "noopener,noreferrer");
-  window.location.href = LAUNCHER_DOWNLOAD_URL;
-  pushActivity("Desktop app launcher download started.", "success");
+  window.open(LAUNCHER_DOWNLOAD_URL, "_blank", "noopener,noreferrer");
+  pushActivity("Desktop launcher download opened.", "success");
 }
 
 function getStatusTone(status) {
@@ -611,6 +609,11 @@ async function bootstrap() {
 
   document.querySelector("#support-github-link")?.addEventListener("click", () => {
     openExternalLink(SUPPORT_GITHUB_URL, "GitHub profile opened.");
+  });
+
+  document.querySelector(".support-mail-link")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    openExternalLink(SUPPORT_MAIL_URL, "Mail composer opened.");
   });
 
   document.querySelector("#hero-site-link")?.addEventListener("click", () => {
